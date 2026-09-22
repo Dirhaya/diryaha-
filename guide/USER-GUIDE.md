@@ -151,3 +151,13 @@ Settings also includes beige/grey themes, hiding amounts, a name field, an optio
 Version 1.4.2 adds **Settings → Check for updates**. Connect to the internet, run the check, and keep the app open while an update downloads. When **Update ready → Reload** appears, finish your current entry and choose Reload. The confirmation explains that unfinished forms and calculator text will be lost; saved records stay on the device.
 
 Before this version arrives, the older equivalent is **Settings → Add to your iPhone → Check offline status**. Keep the installed app open online, then fully close it in the app switcher and reopen it. Check the version in Settings. Deleting the app or clearing Safari/website data is not required and can remove financial records. Safari and the installed app may use different storage, so check the installed copy itself.
+
+## Log a quick expense
+
+Version 1.5 adds **Quick expense** to Overview and Activity. Tap Food & drink, Transport, Laundry, Groceries, Bills or Shopping, enter the amount, check **Pay from**, then tap **Save expense**.
+
+The category is already chosen and the date is today. Open **Date & note · optional** to backdate the entry or add a note. Use the normal Add entry form for other categories, income or transfers. Quick buttons do not repeat the previous amount or save automatically.
+
+The selected account or linked card comes from your latest saved expense in that category. If there is no category history, the latest expense account is used; with no expenses, the first account is selected. You can change it before saving. Cancelled or failed entries do not change this default. Deleting or resetting the source history changes which default can be remembered. These preferences remain separate for each device's records and for sample mode.
+
+The floating assistant/calculator works inside the quick form, including Use amount. Always review the payment account before saving. A shortcut uses today's date even if Activity is currently filtered to an older month.

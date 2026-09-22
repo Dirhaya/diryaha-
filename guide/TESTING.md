@@ -76,3 +76,11 @@ Pending iPhone acceptance: open an expense, type an amount and note, open the he
 119 automated checks pass. Service-worker tests now require reload-cache requests for every precached file; offline asset serving and scope-limited old-cache cleanup still pass. New UI checks cover explicit registration.update(), newer-build notification without automatic reload or form replacement, confirmation before reloading, no reload prompt for same/older builds, and offline-check failures preserving stored records. The update path never clears or recreates IndexedDB.
 
 Physical iPhone update delivery remains unverified. Pending acceptance: update an installed older version online, confirm the ready prompt, cancel a reload to retain a draft, then save the draft and reload. Verify the new version, stored records and offline restart.
+
+## Version 1.5: quick expense entry
+
+125 automated checks pass. New UI checks cover all six shortcuts, no mutation on open/cancel, exact fils and linked-card account mapping on save, restored-state payment defaults, category-specific defaults taking priority over other expenses, invalid-amount rejection, duplicate-submit protection, calculator/form coexistence, demo isolation and empty-account onboarding.
+
+Existing core validation and atomic persistence handle quick entries. No schema, storage name or stored-record migration was added. Payment defaults are computed from saved expense history; amounts are never repeated automatically.
+
+Pending iPhone check: tap a shortcut, verify the keyboard and payment selector are reachable, expand date/note, use and minimise the calculator, save, then reopen offline and check the default. Automated checks use the DOM adapter; no real iPhone layout/keyboard test is claimed.

@@ -19,6 +19,12 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.5: quick expense buttons
+
+**Overview** and **Activity** now have quick buttons for Food & drink, Transport, Laundry, Groceries, Bills and Shopping. Tap a category, enter an amount, check the payment account and save. The date defaults to today; an optional details section contains the date and note. Nothing is recorded by tapping a shortcut alone.
+
+The account or linked debit card defaults to the latest saved expense in that category, then the latest saved expense overall, then the first available account. Defaults are derived from saved records, so they survive reopening and do not require a new database or settings migration. The amount is always blank. The floating assistant remains available.
+
 ## Version 1.4.2: explicit app updates
 
 **Settings → Check for updates** requests a service-worker update. Once a newer build is downloaded, an **Update ready → Reload** button appears. Reload requires confirmation because unfinished forms and chat are session-only; saved records remain in IndexedDB. Downloads bypass the browser HTTP cache, while offline launches still use the complete local asset cache.
@@ -74,6 +80,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-119 automated checks passed for version 1.4.2. The user reported installing the original release; the floating helper has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
+125 automated checks passed for version 1.5. The user reported installing the original release; the quick-entry flow has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.
