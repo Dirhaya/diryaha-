@@ -70,3 +70,9 @@ Pending hardware check: confirm graph labels and selectors fit the iPhone screen
 The helper uses existing app modules, native DOM elements and the existing calculator. It makes no new network requests, changes no storage schema and never auto-saves a financial action. App updates preserve saved records. Chat and calculator state are session-only.
 
 Pending iPhone acceptance: open an expense, type an amount and note, open the helper, calculate, minimise and check the draft remains. Reopen, use a result, check other fields and save. Repeat with the keyboard visible and in landscape; confirm scrolling, focus and minimise remain reachable. Test offline relaunch. Automated DOM doubles do not verify Safari layout, top-layer rendering or keyboard behavior; no physical iPhone test is claimed.
+
+## Version 1.4.2: update handling
+
+119 automated checks pass. Service-worker tests now require reload-cache requests for every precached file; offline asset serving and scope-limited old-cache cleanup still pass. New UI checks cover explicit registration.update(), newer-build notification without automatic reload or form replacement, confirmation before reloading, no reload prompt for same/older builds, and offline-check failures preserving stored records. The update path never clears or recreates IndexedDB.
+
+Physical iPhone update delivery remains unverified. Pending acceptance: update an installed older version online, confirm the ready prompt, cancel a reload to retain a draft, then save the draft and reload. Verify the new version, stored records and offline restart.

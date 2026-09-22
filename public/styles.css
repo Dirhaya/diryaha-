@@ -30,3 +30,5 @@ dialog{width:min(490px,calc(100vw - 32px));max-height:calc(100dvh - 50px);border
 @media(min-width:1000px){.assistant-dock:not(.in-sheet){bottom:24px}.assistant-dock.in-sheet{position:fixed;right:20px;top:24px;width:320px;max-width:calc((100vw - 520px)/2 - 24px)}.assistant-dock.in-sheet.expanded{width:320px}.in-sheet .dock-log{max-height:200px}}
 
 .assistant-dock.expanded:not(.in-sheet){bottom:calc(16px + var(--keyboard-offset,0px) + env(safe-area-inset-bottom))}.assistant-dock:not(.in-sheet) .dock-panel{max-height:calc(var(--app-height,100dvh) - 40px);overflow:auto}.in-sheet .dock-log{max-height:min(120px,calc(var(--app-height,100dvh) * .17))}
+
+.update-notice{position:fixed;left:16px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:44;max-width:calc(100vw - 32px)}.update-notice[hidden]{display:none}.update-notice .btn{box-shadow:0 4px 18px #0002;font-size:12px;min-height:44px}

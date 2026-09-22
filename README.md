@@ -19,6 +19,12 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.4.2: explicit app updates
+
+**Settings → Check for updates** requests a service-worker update. Once a newer build is downloaded, an **Update ready → Reload** button appears. Reload requires confirmation because unfinished forms and chat are session-only; saved records remain in IndexedDB. Downloads bypass the browser HTTP cache, while offline launches still use the complete local asset cache.
+
+On older releases, open the installed app online, use **Settings → Add to your iPhone → Check offline status**, leave it open while files download, then fully close it through the app switcher and reopen. Check the version in Settings. Do not delete the app or clear website data as an update step. If the old version remains, report its version so the installed context can be diagnosed.
+
 ## Version 1.4.1: Laundry category
 
 Choose **Laundry** when adding, editing or explaining an expense. It appears separately in the spending graph. The offline assistant recognises laundry and dry-cleaning expense notes, and supports `spending on laundry this month`. Existing entries keep their categories.
@@ -68,6 +74,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-115 automated checks passed for version 1.4. The user reported installing the original release; the floating helper has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
+119 automated checks passed for version 1.4.2. The user reported installing the original release; the floating helper has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.

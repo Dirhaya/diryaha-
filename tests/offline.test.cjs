@@ -2,9 +2,9 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const root=path.resolve(__dirname,'../public');
 function environment(scope='https://example.test/dirhaya/'){
  const listeners={},stores=new Map();let claimed=false,skipped=false,network=0;
- const caches={async open(name){if(!stores.has(name))stores.set(name,new Map());const store=stores.get(name);return {async addAll(urls){for(const u of urls){const relative=u.slice(scope.length)||'index.html';assert(fs.existsSync(path.join(root,relative)),relative+' must exist');store.set(u,{ok:true,url:u,body:fs.readFileSync(path.join(root,relative))})}},async match(request){return store.get(typeof request==='string'?request:request.url)}}},async keys(){return [...stores.keys()]},async delete(name){return stores.delete(name)}};
+ const caches={async open(name){if(!stores.has(name))stores.set(name,new Map());const store=stores.get(name);return {async addAll(urls){for(const request of urls){assert.equal(request.cache,'reload');const u=request.url;const relative=u.slice(scope.length)||'index.html';assert(fs.existsSync(path.join(root,relative)),relative+' must exist');store.set(u,{ok:true,url:u,body:fs.readFileSync(path.join(root,relative))})}},async match(request){return store.get(typeof request==='string'?request:request.url)}}},async keys(){return [...stores.keys()]},async delete(name){return stores.delete(name)}};
  const self={registration:{scope},location:new URL(scope),clients:{async claim(){claimed=true}},async skipWaiting(){skipped=true},addEventListener(type,fn){listeners[type]=fn}};
- vm.runInNewContext(fs.readFileSync(path.join(root,'sw.js'),'utf8'),{self,caches,URL,encodeURIComponent,fetch:()=>{network++;return Promise.reject(Error('offline'))},Promise},{filename:'sw.js'});
+ vm.runInNewContext(fs.readFileSync(path.join(root,'sw.js'),'utf8'),{self,caches,URL,Request,encodeURIComponent,fetch:()=>{network++;return Promise.reject(Error('offline'))},Promise},{filename:'sw.js'});
  const run=async type=>{let pending;listeners[type]({waitUntil(p){pending=p}});await pending};
  return {listeners,stores,caches,run,get status(){return {claimed,skipped,network}},scope};
 }

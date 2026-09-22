@@ -145,3 +145,9 @@ In Settings, choose **Save a backup** and keep the `.dirhaya` file in Files. **R
 Back up before changing devices, switching hosts, deleting the app, or clearing website data. Internet is not needed to save a local backup, although a cloud destination in Files may need internet to sync.
 
 Settings also includes beige/grey themes, hiding amounts, a name field, an optional spending limit, and an isolated sample mode. Sample changes do not overwrite your real finances. The downloadable interactive preview has no persistent saving at all.
+
+## Update the installed app
+
+Version 1.4.2 adds **Settings → Check for updates**. Connect to the internet, run the check, and keep the app open while an update downloads. When **Update ready → Reload** appears, finish your current entry and choose Reload. The confirmation explains that unfinished forms and calculator text will be lost; saved records stay on the device.
+
+Before this version arrives, the older equivalent is **Settings → Add to your iPhone → Check offline status**. Keep the installed app open online, then fully close it in the app switcher and reopen it. Check the version in Settings. Deleting the app or clearing Safari/website data is not required and can remove financial records. Safari and the installed app may use different storage, so check the installed copy itself.
