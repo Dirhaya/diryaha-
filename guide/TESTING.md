@@ -90,3 +90,12 @@ Pending iPhone check: tap a shortcut, verify the keyboard and payment selector a
 135 automated checks pass. Holdings tests verify exact wealth conservation for purchases, no expense/salary inflation, multiple companies within one portfolio, no double counting of already-included assets, unrecorded assets added once, valuation deltas, full sales to cash, explicit funding different from original cost, protected backing balances and generated ledger entries, invalid/fractional quantities, atomic rejection, JSON backup round trips and reset clearing holdings. UI tests submit actual holding forms and verify saved quantities and valuation totals.
 
 Holdings are optional per-account metadata and their value is included in the existing account balance. No database migration, storage-name change or automatic rewrite is performed. Ledger and holdings changes are committed together by the existing atomic storage path. Existing investment accounts without holdings remain valid. Physical iPhone portfolio form/layout testing remains pending.
+
+
+## Version 1.7 checks
+
+147 automated tests pass. Added schedule validation, duplicate times, daily Calendar recurrence and alarms, next-occurrence dates, settings backup round trips, and preservation through money reset.
+
+Passkey tests use real Node WebCrypto ECDSA signatures with a simulated credential provider. They verify challenge, origin, credential ID, relying-party hash, user-verification flags, invalid signatures, setup cancellation, recovery hashing, and authenticated removal. DOM tests verify no financial storage read before startup unlock, preservation of expense drafts, blocked navigation while locked, cancelled unlocks, recovery, and storage-error handling.
+
+These checks are not a real Safari or iPhone test. Face ID/passcode prompts, Calendar import and alert delivery, and iOS background snapshots need physical-device verification. The feature is a local screen lock, not data encryption. Calendar alerts require explicit import and are managed separately after import.

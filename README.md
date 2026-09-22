@@ -86,6 +86,14 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-135 automated checks passed for version 1.6. The user reported installing the original release; the portfolio forms have not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
+147 automated checks passed for version 1.7. The user reported installing the original release; the new reminder and passkey flows have not been tested on a physical iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.
+
+## Version 1.7: daily reminders and device lock
+
+Settings → Daily reminders supports up to 24 custom daily times. Export a repeating Calendar file and import its events to activate alerts; saving times alone does not schedule notifications. Existing imported alerts must be edited or removed in Calendar. There is no push server.
+
+Settings → Face ID / device lock creates and verifies a device passkey. Save the recovery code before enabling. The app locks on startup and when leaving it, preserving unfinished entry forms. The operating system chooses Face ID, Touch ID, or device passcode. This is a local screen lock, not encryption of device records or backups. Financial data remains unchanged.
+
+See the user guide for setup, recovery, and Calendar import limitations.

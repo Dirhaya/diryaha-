@@ -183,3 +183,26 @@ Tap a holding to update its quantity, original cost or current total value. The 
 You can retain your old individual-stock accounts. To consolidate a balance that has no holding details yet, add it to the portfolio using Move money from another app account and its actual recorded value; do not also choose the unrecorded option. Reserved goal money may need to be moved or released separately. Nothing is automatically merged or deleted.
 
 The app prevents withdrawals that would spend the value still assigned to shares. Update or sell the holding first. Portfolio-generated financial records are managed through the holding, not deleted or edited as ordinary expenses. Backups include holding details; use version 1.6 or later to manage them. Reset balances & history also clears investment holdings while keeping portfolio account names.
+
+
+## Daily reminders (version 1.7)
+
+Open **Settings → Reminders & app lock → Daily reminders**. Add or remove times, choose each time, and save. You can choose up to 24 distinct times per day; removing all times saves an empty schedule.
+
+To receive alerts when Dirhaya is closed, tap **Export Calendar alerts** and import the resulting Dirhaya-daily-reminders.ics events into a calendar that supports this format. Enable that calendar's notifications. The events repeat daily at the selected local times, starting at the next occurrence. They contain only a generic expense-logging reminder, with no financial details.
+
+**Saving times in Dirhaya alone does not activate alerts.** iPhone import options vary: if Files or the share sheet does not offer Calendar import, use a calendar app that supports .ics import, or create daily reminders at these times in Apple Reminders. Calendar/Reminders then controls delivery and Focus settings may silence alerts.
+
+Editing or clearing the schedule inside Dirhaya does not alter events already imported. Remove the old repeating Calendar events before importing a changed schedule to avoid duplicate alerts. These are Calendar-based reminders, not web push notifications. Background web push requires an online push service ([Apple documentation](https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/)).
+
+## Face ID / device lock (version 1.7)
+
+Open **Settings → Reminders & app lock → Face ID / device lock**. Use the installed HTTPS app on a device supporting passkeys. Follow the device prompts to create and verify a passkey, then save the recovery code somewhere secure outside Dirhaya. Check the saved-code confirmation and enable the lock.
+
+The app asks for your passkey on startup and locks when you leave it. You can also choose **Lock now**. An unfinished expense form remains behind the lock screen. Your phone selects Face ID or device passcode; the app cannot enforce Face-ID-only authentication. It does not photograph your face or receive biometric data ([Apple documentation](https://webkit.org/blog/11312/meet-face-id-and-touch-id-for-the-web/)).
+
+To disable the lock, use its Settings screen and verify your passkey. If it is unavailable, open **Use recovery code** on the locked screen. A valid code disables the lock without modifying your financial records. Set it up again afterwards if desired. Cancelling setup does not enable the lock, although your passkey provider may retain the newly created passkey.
+
+This is an app screen lock, **not encryption** of IndexedDB, exports, or backups. Someone able to modify browser storage or app code can bypass a local screen lock. Protect your device and backups. Lock configuration is separate from financial backups and must be enabled on each installation. Your passkey provider may sync the credential; Dirhaya does not sync your financial data. Do not clear website data to fix unlocking, because that can erase your records. Save the recovery code and keep regular financial backups.
+
+Physical iPhone passkey prompts, background transitions, and Calendar imports still require device testing.
