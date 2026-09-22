@@ -21,7 +21,7 @@ Run `node --test tests/*.test.cjs`. Exact results from the release build are in 
 
 The IndexedDB, cache, and DOM adapters are test doubles. They verify the application logic around browser APIs, not the browser's own implementations. No real Chromium, WebKit, Safari, or iPhone session was available. Browser installation was blocked by the environment's download policy; it was not bypassed. Visual layout, touchscreen/keyboard behavior, Add to Home Screen, actual device persistence, sharing to Files, and offline relaunch remain unverified on hardware.
 
-The original release deployed successfully through GitHub Pages from main /docs, and the user reported installing it. Version 1.1 adds date splitting; device-level testing of the new flow is still pending.
+The original release deployed successfully through GitHub Pages from main /docs, and the user reported installing it. Version 1.1 adds date splitting and version 1.2 adds a confirmed reset with retained accounts. Device-level testing of these new flows is still pending.
 
 ## iPhone acceptance check after deployment
 
@@ -44,3 +44,13 @@ These steps are a pending acceptance procedure, not a claim that device testing 
 The data version, IndexedDB name, object store, and database version are unchanged. No startup migration or reset was added. Existing records are changed only when the user saves a split, explanation, or edit. The offline asset cache version is incremented independently.
 
 On the installed iPhone after updating, open a test expense, choose Split across months, and move a portion to last month. Verify the current month drops by that amount, the prior month increases equally, and the bank balance remains unchanged. Close/reopen offline and verify both portions persist. These hardware checks are not claimed as completed.
+
+## Version 1.2: reset numbers and retain account setup
+
+98 automated checks pass. Added checks cover preserving account/card/goal identity and settings; clearing all balances, transactions, reservations, checks, and the spending limit; unchanged source records; and a revision increment without a schema change. Starting-balance edits create no income or unexplained entry. Transaction history, incoming transfers, and goal reservations prevent changing an account's starting balance after tracking begins.
+
+Storage checks verify reset persistence after reopening, removal of the internal restore snapshot, atomic rollback of the entire vault on failure, and recovery from a previously exported backup. UI checks verify that opening or cancelling the dialog does not write, confirmation requires RESET, demo reset leaves device records unchanged, and the retained-account form saves a starting balance without adding income.
+
+Reset uses one IndexedDB transaction to clear the vault and write the validated replacement. No reset runs at startup, on update, or without user confirmation. The database name, version, and data schema are unchanged. The service-worker asset build is incremented so installed apps can receive the new files.
+
+Pending iPhone check: save a backup, confirm the reset, verify retained accounts/cards/goal plans and zero amounts, set actual starting balances, and record a new expense. Confirm no artificial income appears and the new balance persists after closing and reopening offline. These hardware checks have not been completed.

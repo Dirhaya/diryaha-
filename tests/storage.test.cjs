@@ -5,7 +5,7 @@ const C=require('../public/core.js');
 function fakeDB(){
  let data=new Map(),queue=[],busy=false,failNext=false;
  function startNext(){if(busy||!queue.length)return;busy=true;const tx=queue.shift();tx._start()}
- const db={createObjectStore(){},close(){},transaction(name,mode){let pending=0,started=false,ended=false,ops=[],snapshot,error;const tx={objectStore(){return {get(id){return request(()=>snapshot.get(id))},put(value){if(failNext){failNext=false;throw Error('Simulated quota error')}return request(()=>{snapshot.set(value.id,structuredClone(value));return value.id})}}},abort(){if(ended)return;ended=true;error=Error('Aborted');setImmediate(()=>{tx.onabort?.();busy=false;startNext()})},_start(){started=true;snapshot=new Map([...data].map(([k,v])=>[k,structuredClone(v)]));ops.splice(0).forEach(execute);scheduleFinish()}};
+ const db={createObjectStore(){},close(){},transaction(name,mode){let pending=0,started=false,ended=false,ops=[],snapshot,error;const tx={objectStore(){return {clear(){return request(()=>snapshot.clear())},get(id){return request(()=>snapshot.get(id))},put(value){if(failNext){failNext=false;throw Error('Simulated quota error')}return request(()=>{snapshot.set(value.id,structuredClone(value));return value.id})}}},abort(){if(ended)return;ended=true;error=Error('Aborted');setImmediate(()=>{tx.onabort?.();busy=false;startNext()})},_start(){started=true;snapshot=new Map([...data].map(([k,v])=>[k,structuredClone(v)]));ops.splice(0).forEach(execute);scheduleFinish()}};
  function scheduleFinish(){setImmediate(()=>{if(ended||pending)return;ended=true;if(mode==='readwrite')data=snapshot;tx.oncomplete?.();busy=false;startNext()})}
  function execute(job){setImmediate(()=>{if(ended)return;try{job.req.result=structuredClone(job.fn());job.req.onsuccess?.()}catch(e){tx.error=e;job.req.onerror?.();tx.abort()}pending--;scheduleFinish()})}
  function request(fn){const req={};pending++;const job={req,fn};if(started)execute(job);else ops.push(job);return req}
@@ -27,4 +27,16 @@ test('splits commit atomically, survive reopening and roll back both portions on
  const snapshot=JSON.stringify(s),id=s.transactions[0].id,date=C.localDate(new Date(new Date().getFullYear(),new Date().getMonth()-1,15));adapter.fail();
  await assert.rejects(S.mutate({type:'transaction.split',id,amount:150000,date}));assert.equal(JSON.stringify(await S.get()),snapshot);
  await S.mutate({type:'transaction.split',id,amount:150000,date});const restored=await env(adapter).S.init();assert.equal(C.summary(restored).spent,300000);assert.equal(C.summary(restored,date).spent,150000);assert.equal(C.summary(restored).total,550000);assert.equal(restored.transactions.length,2);
+});
+
+test('reset preserves account setup across reopening and removes the old restore snapshot',async()=>{
+ const {S,adapter}=env();await S.init();await S.restore(C.demo());const before=await S.get();assert(adapter.snapshot().has('before-restore'));
+ const reset=await S.resetMoney();assert.equal(reset.rev,before.rev+1);assert.deepEqual(reset.accounts.map(a=>a.id),before.accounts.map(a=>a.id));assert.deepEqual(reset.cards,before.cards);assert.equal(reset.transactions.length,0);assert.equal(C.summary(reset).total,0);assert.equal(adapter.snapshot().size,1);assert(!adapter.snapshot().has('before-restore'));
+ const reopened=await env(adapter).S.init();assert.deepEqual(reopened,reset);await assert.rejects(S.recover(),/No earlier restore/);
+});
+test('failed reset rolls back both the financial records and the recovery snapshot',async()=>{
+ const {S,adapter}=env();await S.init();await S.restore(C.demo());const records=JSON.stringify(await S.get()),snapshot=adapter.snapshot();adapter.fail();await assert.rejects(S.resetMoney());assert.equal(JSON.stringify(await S.get()),records);assert.deepEqual(adapter.snapshot(),snapshot);
+});
+test('an exported pre-reset backup can still restore all earlier records',async()=>{
+ const {S}=env();await S.init();await S.restore(C.demo());const backup=JSON.parse(JSON.stringify(await S.get()));await S.resetMoney();assert.equal(C.summary(await S.get()).total,0);const restored=await S.restore(backup);assert.equal(C.summary(restored).total,C.summary(backup).total);assert.deepEqual(restored.transactions,backup.transactions);assert.deepEqual(restored.goals,backup.goals);
 });

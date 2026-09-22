@@ -6,6 +6,22 @@ Add each real place that holds money: your bank, savings account, cash, digital 
 
 To reconstruct this month's salary and spending, use the balance before those transactions as the starting balance, then enter the transactions. Entering today's balance and adding a salary already included in it would count the salary twice.
 
+## Start again without deleting your accounts
+
+Version 1.2 can clear old numbers and let you track from today. You do not need to reconstruct spending from earlier months.
+
+1. Open **Settings → Reset balances & history**. Choose **Save a backup first** if you may want the old records later.
+2. Type **RESET** and choose **Reset money records**.
+3. Open **Accounts → an account → Set starting balance**. Enter the money actually in that account now. Repeat for each place that holds money.
+4. If some of that money is already for a goal, open the goal and use **Add savings**, choosing the same account for where it is held and where it comes from. This reserves money already included in your balance.
+5. Record income, expenses, and transfers that happen after your starting balances. Do not add an earlier salary again if it is already included in those balances.
+
+The reset keeps your account names, types, colours, linked cards, goal names, targets, deadlines, and appearance preferences. It clears account balances, all transactions, unexplained amounts, balance checks, goal savings, and the spending limit. It also clears the internal restore snapshot, so it cannot be undone inside the app. Backup files you previously saved in Files are untouched and can still be restored.
+
+Starting balances are not counted as salary or unexplained income. They can be edited while the account has no transactions or goal reservations; after you begin tracking, use the normal transaction and balance-check tools. Debit cards share the linked account's balance, so do not enter it twice.
+
+Updating to version 1.2 preserves existing records. Nothing resets until you confirm. Open the installed app while online to receive the update; if Settings still shows an older version, close the app and reopen it after the update downloads. Do not delete the app or clear website data to update it.
+
 ## Bank accounts and debit cards
 
 Under **Accounts**, add your bank, then **Link a card**. Give the debit card a name and optionally its last four digits. You never need a full card number, PIN, expiry, or security code.

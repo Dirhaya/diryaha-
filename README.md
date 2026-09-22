@@ -4,7 +4,7 @@ A beige/grey personal money app for iPhone Home Screen use. It tracks bank accou
 
 ## Publish the app
 
-The app files are uploaded. The remaining step is to enable GitHub Pages:
+The app is published at [dirhaya.github.io/diryaha-](https://dirhaya.github.io/diryaha-/). GitHub Pages uses these settings:
 
 1. Open [this repository’s Pages settings](https://github.com/Dirhaya/diryaha-/settings/pages).
 2. Under Source, choose **Deploy from a branch**.
@@ -19,7 +19,13 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
-## Version 1.1: correct spending months
+## Version 1.2: start fresh and keep your accounts
+
+In **Settings → Reset balances & history**, optionally save a backup, type **RESET**, and choose **Reset money records**. This keeps account names and types, linked debit cards, goal names and targets, and appearance preferences. It clears balances, transactions, unexplained amounts, goal savings, the spending limit, and the internal restore snapshot. Exported backup files are not deleted.
+
+Next, open each account and choose **Set starting balance**. Enter the money you actually have now, then record only new activity. These starting balances are not income. Do not add salary again if it is already included. You do not need to reconstruct earlier months. Updating the app never triggers this reset automatically.
+
+## Correct spending months
 
 Activity → entry → **Split across months** moves a portion to its actual date without changing the account balance or combined total. Use **Edit entry → Date** for a whole entry. Explain part or all also includes a date field. Existing records and device storage are preserved; no data re-entry is required.
 
@@ -46,6 +52,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-84 automated checks passed for version 1.1. Browser layout, Safari sharing, and iPhone installation have not yet been tested on hardware. The tests use simulated browser APIs; see the verification guide for details.
+98 automated checks passed for version 1.2. The user reported installing the original release; the new reset flow has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.
