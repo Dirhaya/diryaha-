@@ -99,3 +99,6 @@ Holdings are optional per-account metadata and their value is included in the ex
 Passkey tests use real Node WebCrypto ECDSA signatures with a simulated credential provider. They verify challenge, origin, credential ID, relying-party hash, user-verification flags, invalid signatures, setup cancellation, recovery hashing, and authenticated removal. DOM tests verify no financial storage read before startup unlock, preservation of expense drafts, blocked navigation while locked, cancelled unlocks, recovery, and storage-error handling.
 
 These checks are not a real Safari or iPhone test. Face ID/passcode prompts, Calendar import and alert delivery, and iOS background snapshots need physical-device verification. The feature is a local screen lock, not data encryption. Calendar alerts require explicit import and are managed separately after import.
+
+
+Version 1.7.2: 152 tests pass. Added automatic update checks for idle application, open drafts, settings, calculator, screen lock, offline checks, and reload-loop prevention. Browser lifecycle APIs are simulated; physical iPhone testing remains outstanding.

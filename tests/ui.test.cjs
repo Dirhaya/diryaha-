@@ -5,7 +5,7 @@ function environment(seed=C.demo(),preview=false){
  const document={querySelector:el,querySelectorAll(){return []},createElement:n=>el('new-'+n),addEventListener(){},body:el('body'),documentElement:el('html')};let stored=C.clone(seed),writes=0;
  const storage={async init(){return C.clone(stored)},async get(){return C.clone(stored)},async resetMoney(){writes++;stored=C.resetMoney(stored);return C.clone(stored)},async mutate(action){writes++;stored=C.apply(stored,action);return C.clone(stored)}};
  const ctx={DIRHAYA_PREVIEW:preview,DirhayaCore:C,DirhayaStorage:storage,DirhayaReminders:require('../public/reminders.js'),DirhayaSecurity:{enabled:()=>false,cancel(){}},document,console,window:null,navigator:{},location:{protocol:'file:'},innerWidth:440,innerHeight:956,matchMedia:()=>({matches:false}),setTimeout:()=>1,clearTimeout(){},FormData:class{constructor(form){this.values=form.values||{}}get(key){return this.values[key]??null}},Date,Math,Promise,URL,Event:class{constructor(type){this.type=type}},File:class{},Blob,addEventListener(){},scrollTo(){},isSecureContext:false};ctx.window=ctx;
- let src=fs.readFileSync(require.resolve('../public/app.js'),'utf8');src=src.replace(/init\(\);\s*\}\)\(\);\s*$/,`window.UI={init,render,dispatch,transactionForm,goalForm,accountForm,allocateForm,installSheet,sendMessage,checkOffline,refreshOfflineStatus,homeView,accountsView,goalsView,activityView,settingsView,chatView,get state(){return state},setState(s){state=s;realState=s},get messages(){return messages}};})();`);vm.runInNewContext(src,ctx);ctx.UI.setState(C.clone(seed));return {ctx,ui:ctx.UI,el,elements,get writes(){return writes},get stored(){return stored}};
+ let src=fs.readFileSync(require.resolve('../public/app.js'),'utf8');src=src.replace(/init\(\);\s*\}\)\(\);\s*$/,`window.UI={tryAutoUpdate,autoCheckUpdates,init,render,dispatch,transactionForm,goalForm,accountForm,allocateForm,installSheet,sendMessage,checkOffline,refreshOfflineStatus,homeView,accountsView,goalsView,activityView,settingsView,chatView,get state(){return state},setState(s){state=s;realState=s},get messages(){return messages}};})();`);vm.runInNewContext(src,ctx);ctx.UI.setState(C.clone(seed));return {ctx,ui:ctx.UI,el,elements,get writes(){return writes},get stored(){return stored}};
 }
 test('all main views render from actual valid data without template exceptions',async()=>{const e=environment();for(const view of ['home','accounts','goals','activity','assistant']){await e.ui.dispatch('view:'+view);assert(e.el('#app').innerHTML.includes('dirhaya'));assert(!e.el('#app').innerHTML.includes('NaN'))}await e.ui.dispatch('settings');assert.match(e.el('#app').innerHTML,/Yours, on this device/)});
 test('account and goal names are HTML escaped',()=>{const s=C.demo();s.accounts[0].name='<img src=x onerror=alert(1)>';s.goals[0].name='<script>bad</script>';const e=environment(s);assert.match(e.ui.accountsView(),/&lt;img/);assert(!e.ui.accountsView().includes('<img src=x'));assert.match(e.ui.goalsView(),/&lt;script&gt;/)});
@@ -105,4 +105,23 @@ test('new installation asks for its own name and saves it locally',async()=>{
 test('existing saved names remain unchanged with no onboarding prompt',async()=>{
  const s=C.blank();s.settings.name='Existing person';delete s.settings.needsName;
  const e=environment(s);await e.ui.init();assert.equal(e.el('#sheet').open,false);assert.equal(e.ui.state.settings.name,'Existing person');assert.equal(e.writes,0);
+});
+
+test('downloaded update applies once on idle overview without changing records',async()=>{
+ const e=environment(),m=mockUpdate(e),values=new Map();e.ctx.sessionStorage={getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)};
+ await e.ui.checkOffline();assert.equal(e.ui.tryAutoUpdate(),false);
+ assert.equal(e.ui.tryAutoUpdate(Date.now()+31000),true);e.ui.tryAutoUpdate(Date.now()+32000);
+ assert.equal(m.reloads,1);assert.equal(e.writes,0);
+});
+test('automatic reload waits for expense draft, settings, calculator and lock',async()=>{
+ for(const action of ['new-entry','settings','dock-open','lock-now']){
+  const e=environment(),m=mockUpdate(e);e.ctx.sessionStorage={getItem:()=>null,setItem(){}};
+  await e.ui.checkOffline();await e.ui.dispatch(action);
+  assert.equal(e.ui.tryAutoUpdate(Date.now()+31000),false,action);assert.equal(m.reloads,0);
+ }
+});
+test('automatic update avoids offline checks and repeated reload attempts',async()=>{
+ const e=environment(),m=mockUpdate(e);e.ctx.navigator.onLine=false;await e.ui.autoCheckUpdates(true);assert.equal(m.updates,0);
+ e.ctx.navigator.onLine=true;await e.ui.autoCheckUpdates(true);assert.equal(m.updates,1);
+ e.ctx.sessionStorage={getItem:()=> '1',setItem(){}};assert.equal(e.ui.tryAutoUpdate(Date.now()+31000),false);assert.equal(m.reloads,0);
 });

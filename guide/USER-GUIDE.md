@@ -206,3 +206,10 @@ To disable the lock, use its Settings screen and verify your passkey. If it is u
 This is an app screen lock, **not encryption** of IndexedDB, exports, or backups. Someone able to modify browser storage or app code can bypass a local screen lock. Protect your device and backups. Lock configuration is separate from financial backups and must be enabled on each installation. Your passkey provider may sync the credential; Dirhaya does not sync your financial data. Do not clear website data to fix unlocking, because that can erase your records. Save the recovery code and keep regular financial backups.
 
 Physical iPhone passkey prompts, background transitions, and Calendar imports still require device testing.
+
+
+## Automatic updates (version 1.7.2)
+
+Install this release once using Settings → Check for updates, then Reload update. Future checks run on opening, returning to the visible app, reconnecting, and every five minutes while open and online. Updates apply automatically after 30 seconds without interaction on an overview page. Open forms, Settings, the assistant, calculator work, authentication, and pending saves defer automatic reloads. Finish or close your work first. A manual Reload update option remains available.
+
+Updates do not clear financial records. Offline use continues with downloaded files. An app that stays closed cannot promise an immediate update; open it online to receive new releases. A session guard prevents repeatedly reloading the same build.
