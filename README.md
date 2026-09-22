@@ -19,6 +19,10 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.1: correct spending months
+
+Activity → entry → **Split across months** moves a portion to its actual date without changing the account balance or combined total. Use **Edit entry → Date** for a whole entry. Explain part or all also includes a date field. Existing records and device storage are preserved; no data re-entry is required.
+
 ## Your money
 
 Debit cards share their linked bank balance and do not add extra money. Goal allocations reserve money in a named real account. Actual-balance checks label missing amounts as unexplained spending; explaining a portion later does not debit it again. Funds transferred between your accounts are not spending.
@@ -42,6 +46,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-71 automated checks passed before upload. Browser layout, Safari sharing, and iPhone installation have not yet been tested on hardware. The tests use simulated browser APIs; see the verification guide for details.
+84 automated checks passed for version 1.1. Browser layout, Safari sharing, and iPhone installation have not yet been tested on hardware. The tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.

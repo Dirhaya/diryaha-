@@ -20,3 +20,11 @@ test('validation failure aborts the complete transaction',async()=>{const {S}=en
 test('quota failure does not publish partial or optimistic data',async()=>{const {S,adapter}=env();await S.init();const before=JSON.stringify(await S.get());adapter.fail();await assert.rejects(S.mutate({type:'account.add',name:'Failed',kind:'bank',opening:100,color:'sand'}));assert.equal(JSON.stringify(await S.get()),before);await S.mutate({type:'account.add',name:'Retry',kind:'bank',opening:100,color:'sand'});assert.equal((await S.get()).accounts[0].name,'Retry')});
 test('restore keeps a recoverable prior snapshot and fresh revision',async()=>{const {S}=env();await S.init();let original=await S.mutate({type:'account.add',name:'My money',kind:'bank',opening:12345,color:'sand'});const demo=C.demo();let restored=await S.restore(demo);assert.equal(restored.rev,original.rev+1);assert.equal(restored.accounts.length,3);const recovered=await S.recover();assert.equal(recovered.accounts[0].name,'My money');assert.equal(C.summary(recovered).total,12345);assert.equal(recovered.rev,restored.rev+1)});
 test('invalid restore data cannot replace device records',async()=>{const {S}=env();await S.init();const before=JSON.stringify(await S.get());assert.throws(()=>S.restore({format:'wrong'}));assert.equal(JSON.stringify(await S.get()),before);await assert.rejects(S.recover(),/No earlier restore/) });
+
+test('splits commit atomically, survive reopening and roll back both portions on storage failure',async()=>{
+ const {S,adapter}=env();await S.init();let s=await S.mutate({type:'account.add',name:'Bank',kind:'bank',opening:1000000});
+ s=await S.mutate({type:'transaction.add',kind:'expense',amount:450000,account:s.accounts[0].id,date:C.localDate(),category:'Unexplained'});
+ const snapshot=JSON.stringify(s),id=s.transactions[0].id,date=C.localDate(new Date(new Date().getFullYear(),new Date().getMonth()-1,15));adapter.fail();
+ await assert.rejects(S.mutate({type:'transaction.split',id,amount:150000,date}));assert.equal(JSON.stringify(await S.get()),snapshot);
+ await S.mutate({type:'transaction.split',id,amount:150000,date});const restored=await env(adapter).S.init();assert.equal(C.summary(restored).spent,300000);assert.equal(C.summary(restored,date).spent,150000);assert.equal(C.summary(restored).total,550000);assert.equal(restored.transactions.length,2);
+});

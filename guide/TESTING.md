@@ -21,7 +21,7 @@ Run `node --test tests/*.test.cjs`. Exact results from the release build are in 
 
 The IndexedDB, cache, and DOM adapters are test doubles. They verify the application logic around browser APIs, not the browser's own implementations. No real Chromium, WebKit, Safari, or iPhone session was available. Browser installation was blocked by the environment's download policy; it was not bypassed. Visual layout, touchscreen/keyboard behavior, Add to Home Screen, actual device persistence, sharing to Files, and offline relaunch remain unverified on hardware.
 
-This repository uses GitHub Pages publishing from main /docs. Enabling Pages and checking the live iPhone installation remain pending. No successful deployment is claimed.
+The original release deployed successfully through GitHub Pages from main /docs, and the user reported installing it. Version 1.1 adds date splitting; device-level testing of the new flow is still pending.
 
 ## iPhone acceptance check after deployment
 
@@ -36,3 +36,11 @@ This repository uses GitHub Pages publishing from main /docs. Enabling Pages and
 9. Test on a second window if using that mode, then close it. Enter real data only after these checks. Use the installed copy consistently and maintain backups.
 
 These steps are a pending acceptance procedure, not a claim that device testing has been completed.
+
+## Version 1.1: splitting across months
+
+84 automated checks pass. New checks cover partial and repeated splits with exact fils, income and expense month totals, unchanged account balances and goal reservations, retained card/category metadata, invalid date/amount rejection, no duplicate balance-check spending, dating explained portions, version-1 backup compatibility, form submission, and atomic storage rollback plus reopening.
+
+The data version, IndexedDB name, object store, and database version are unchanged. No startup migration or reset was added. Existing records are changed only when the user saves a split, explanation, or edit. The offline asset cache version is incremented independently.
+
+On the installed iPhone after updating, open a test expense, choose Split across months, and move a portion to last month. Verify the current month drops by that amount, the prior month increases equally, and the bank balance remains unchanged. Close/reopen offline and verify both portions persist. These hardware checks are not claimed as completed.

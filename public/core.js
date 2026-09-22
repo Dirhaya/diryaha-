@@ -62,6 +62,12 @@ function apply(state,action){
    if(action.type==='transaction.edit'){const idx=s.transactions.findIndex(x=>x.id===action.id);if(idx<0)fail('This transaction no longer exists.');item.created=s.transactions[idx].created;s.transactions[idx]=item}else{if(s.transactions.length>=50000)fail('Export your history before adding more than 50,000 entries.');s.transactions.push(item)}assertReserves(s);break;
   }
   case 'transaction.delete':{if(!s.transactions.some(t=>t.id===action.id))fail('This transaction no longer exists.');s.transactions=s.transactions.filter(t=>t.id!==action.id);assertReserves(s);break}
+  case 'transaction.split':{
+   const t=s.transactions.find(x=>x.id===action.id);if(!t||!['expense','income'].includes(t.type))fail('Choose an expense or income entry to split.');
+   const amount=cents(action.amount,{zero:false});if(amount>=t.amount)fail('Split less than the full amount. To move the whole entry, use Edit entry and change its date.');
+   if(!validDate(action.date)||action.date>localDate())fail('Use today or an earlier valid date.');
+   const part={...t,id:uid(),amount,date:action.date,created:Date.now(),splitFrom:t.id};delete part.balanceCheck;t.amount-=amount;s.transactions.push(part);assertReserves(s);break;
+  }
   case 'account.check':{
    const a=getAccount(action.id),actual=cents(action.balance),expected=balances(s)[a.id],delta=actual-expected,reserved=reserves(s)[a.id];
    if(actual<reserved)fail(`You marked AED ${format(reserved)} of goal savings as held in “${a.name}”, but its actual balance is AED ${format(actual)}. Move those savings to their real account, or release the unfunded reservation first.`);
@@ -70,7 +76,8 @@ function apply(state,action){
   }
   case 'transaction.explain':{
    const t=s.transactions.find(t=>t.id===action.id);if(!t||!['Unexplained','Unexplained income'].includes(t.category))fail('Choose an unexplained entry.');const amount=cents(action.amount,{zero:false});if(amount>t.amount)fail('That is more than the amount still unexplained.');const category=action.category;if(!validCategory(t.type,category)||['Unexplained','Unexplained income'].includes(category))fail('Choose a known spending or income category.');
-   if(action.card&&!s.cards.some(c=>c.id===action.card&&c.account===t.account&&t.type==='expense'))fail('Choose a debit card linked to this account.');const explained={...t,card:action.card||t.card||null,id:uid(),amount,category,note:String(action.note||'').trim().slice(0,180)||category,created:Date.now(),explainedFrom:t.id};delete explained.balanceCheck;t.amount-=amount;s.transactions=s.transactions.filter(x=>x.amount!==0);s.transactions.push(explained);assertReserves(s);break;
+   const date=action.date??t.date;if(!validDate(date)||date>localDate())fail('Use today or an earlier valid date.');
+   if(action.card&&!s.cards.some(c=>c.id===action.card&&c.account===t.account&&t.type==='expense'))fail('Choose a debit card linked to this account.');const explained={...t,date,card:action.card||t.card||null,id:uid(),amount,category,note:String(action.note||'').trim().slice(0,180)||category,created:Date.now(),explainedFrom:t.id};delete explained.balanceCheck;t.amount-=amount;s.transactions=s.transactions.filter(x=>x.amount!==0);s.transactions.push(explained);assertReserves(s);break;
   }
   case 'account.reconcile':{const a=getAccount(action.id),desired=cents(action.balance),delta=desired-balances(s)[a.id];if(delta===0)fail('This account already matches that balance.');s.transactions.push({id:uid(),type:'adjustment',amount:delta,account:a.id,to:null,date:localDate(),category:'Balance adjustment',note:'Balance corrected',created:Date.now()});assertReserves(s);break}
   case 'goal.add':case 'goal.edit':{

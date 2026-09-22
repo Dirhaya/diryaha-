@@ -58,6 +58,16 @@ For example, explaining AED 500 of the AED 4,500 gap leaves AED 4,000 unknown an
 
 If you discover the gap was actually a transfer or an incorrect entry, remove or correct the mistaken entry and record the real transaction. Recheck the affected accounts afterwards. Deleting an entry recalculates balances and is blocked if it would leave reserved savings unfunded.
 
+## Correct the month of spending
+
+In version 1.1, open **Activity**, select an income or expense entry, and choose **Split across months**. Enter the portion belonging to another month and its date, then save. The remainder keeps its original date. Both portions keep the account, payment card, and category. An unexplained entry stays unexplained unless you categorise it.
+
+For example, moving AED 1,500 of an AED 4,500 entry to a date last month leaves AED 3,000 this month. Your bank balance and combined spending remain unchanged. Repeat to divide across more dates. Use the Activity month filter to see each month's Money out; Overview always shows the current month.
+
+To move a whole entry, choose **Edit entry** and change **Date**. In **Explain part or all**, you can also choose the actual spending date while categorising a portion. If you only know the month, use a date in that month and mark the date as estimated in the entry note. Dirhaya cannot infer the correct month from the current bank balance.
+
+Do not add an extra expense for money already included in an unexplained balance-check gap. Split or explain the existing entry to avoid counting it twice. Save a backup before changing old records. Version 1.1 preserves version-1 records and uses the same database; updating does not reset them.
+
 ## Ask the offline assistant
 
 Type any of these, substituting your actual account or goal names:
