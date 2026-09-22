@@ -95,3 +95,14 @@ test('recovery failure stays locked and successful recovery leaves records uncha
  e.ctx.DirhayaSecurity.recover=async()=>{};await e.ui.dispatch('lock-recovery');
  assert.equal(e.el('#lock-screen').open,false);assert.equal(JSON.stringify(e.stored),before);assert.equal(e.writes,0);
 });
+
+test('new installation asks for its own name and saves it locally',async()=>{
+ const e=environment(C.blank());await e.ui.init();assert.match(e.el('#sheet').innerHTML,/Welcome to Dirhaya/);
+ const f=e.el('#welcome-name-form');f.values={name:'Aisha'};await f.onsubmit({preventDefault(){}});
+ assert.equal(e.stored.settings.name,'Aisha');assert.equal(e.stored.settings.needsName,false);assert.equal(e.el('#sheet').open,false);
+ const again=environment(e.stored);await again.ui.init();assert.equal(again.el('#sheet').open,false);
+});
+test('existing saved names remain unchanged with no onboarding prompt',async()=>{
+ const s=C.blank();s.settings.name='Existing person';delete s.settings.needsName;
+ const e=environment(s);await e.ui.init();assert.equal(e.el('#sheet').open,false);assert.equal(e.ui.state.settings.name,'Existing person');assert.equal(e.writes,0);
+});
