@@ -19,6 +19,12 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.3: broad category graph
+
+**Overview → Where your money goes** shows ranked bars with period and account selectors. **Activity** shows the same graph for its current filters, across all matching records. Groceries merge into food and drink visually; saved entries are unchanged. Unexplained spending stays separate. The privacy toggle hides values and bar proportions.
+
+Add an **Investment account** and record contributions as transfers into it. These appear separately from spending; other transfers, investment withdrawals, moves between investment accounts, and goal reservations are excluded. Investment balances are manual, not live market values. The graph is entirely local and works offline. It does not parse bank PDFs, import data or repair duplicate records automatically.
+
 ## Version 1.2: start fresh and keep your accounts
 
 In **Settings → Reset balances & history**, optionally save a backup, type **RESET**, and choose **Reset money records**. This keeps account names and types, linked debit cards, goal names and targets, and appearance preferences. It clears balances, transactions, unexplained amounts, goal savings, the spending limit, and the internal restore snapshot. Exported backup files are not deleted.
@@ -52,6 +58,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-98 automated checks passed for version 1.2. The user reported installing the original release; the new reset flow has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
+105 automated checks passed for version 1.3. The user reported installing the original release; the graph has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.

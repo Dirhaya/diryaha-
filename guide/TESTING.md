@@ -54,3 +54,11 @@ Storage checks verify reset persistence after reopening, removal of the internal
 Reset uses one IndexedDB transaction to clear the vault and write the validated replacement. No reset runs at startup, on update, or without user confirmation. The database name, version, and data schema are unchanged. The service-worker asset build is incremented so installed apps can receive the new files.
 
 Pending iPhone check: save a backup, confirm the reset, verify retained accounts/cards/goal plans and zero amounts, set actual starting balances, and record a new expense. Confirm no artificial income appears and the new balance persists after closing and reopening offline. These hardware checks have not been completed.
+
+## Version 1.3: broad category graph
+
+105 automated checks pass. Added checks verify grouping and ranking with exact fils, unchanged source records, investment contributions preserving total assets, exclusion of ordinary transfers and investment-to-investment moves, no duplicate card counting, and refunds/income/reservations staying out of expense totals. UI tests verify period/account selection, Activity filters, privacy hiding both values and proportions, investment account options, and reset compatibility. Test fixtures are synthetic and contain no statement data.
+
+Graph elements use native HTML/CSS and existing app modules, with no external chart service or new runtime dependencies. Existing data is not migrated or overwritten. The account type allowlist gains investment; old backups remain readable by the new release. A backup with investment accounts requires this release or later to restore.
+
+Pending hardware check: confirm graph labels and selectors fit the iPhone screen, change periods and accounts, toggle hidden amounts, and relaunch offline. No real Safari or iPhone test was available for this release; the automated UI uses a minimal DOM adapter.

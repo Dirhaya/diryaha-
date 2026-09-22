@@ -84,6 +84,16 @@ To move a whole entry, choose **Edit entry** and change **Date**. In **Explain p
 
 Do not add an extra expense for money already included in an unexplained balance-check gap. Split or explain the existing entry to avoid counting it twice. Save a backup before changing old records. Version 1.1 preserves version-1 records and uses the same database; updating does not reset them.
 
+## See where your money goes
+
+In version 1.3, open **Overview → Where your money goes** and choose a period and account. The graph ranks broad categories by amount. **All recorded dates** combines your saved history. In **Activity**, the graph follows the account, month, type and search filters and includes matching records beyond the first displayed page.
+
+Groceries appear within Food & drink, Health appears within Health & personal care, and Gifts appears within Gifts & charity. These are display groups; saved category labels remain unchanged. Unexplained amounts are never guessed into another category. Amounts and bar proportions are hidden when the eye/privacy setting is enabled.
+
+For assets you still own, create an account with type **Investment account** and record contributions as transfers from the bank or cash account. Gross contributions appear separately from spending and remain included in total money. Transfers between investment accounts and withdrawals are not new contributions. Values are entered manually and do not track market prices. Other transfers and goal reservations are excluded from the chart. Refunds remain income, so the chart shows gross spending rather than spending net of refunds.
+
+Percentages use spending plus gross investment contributions as their denominator. The graph uses the dates you entered; it cannot correct estimated dates or duplicate entries. Existing data is preserved on update. Bank statements and personal records are not included in app releases.
+
 ## Ask the offline assistant
 
 Type any of these, substituting your actual account or goal names:

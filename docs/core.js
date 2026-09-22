@@ -2,7 +2,7 @@
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.DirhayaCore=value})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const VERSION=1,MAX_MONEY=999999999999;
-const ACCOUNT_TYPES=['bank','savings','cash','wallet','prepaid'];
+const ACCOUNT_TYPES=['bank','savings','cash','wallet','prepaid','investment'];
 const COLORS=['sand','sage','slate','clay','lilac'];
 const CATEGORIES=['Food & drink','Groceries','Transport','Shopping','Bills','Education','Health','Entertainment','Travel','Gifts','Other','Salary','Allowance','Refund','Other income','Unexplained','Unexplained income'];
 const INCOME_CATEGORIES=['Salary','Allowance','Refund','Other income','Unexplained income'];
@@ -35,6 +35,18 @@ function summary(state,date=localDate()){
  const b=balances(state),r=reserves(state),total=safeSum(Object.values(b)),reserved=safeSum(Object.values(r));let income=0,spent=0,salary=0,unknownSpent=0,unknownIncome=0;const month=date.slice(0,7),categories={};
  for(const t of state.transactions){if(t.date.slice(0,7)!==month)continue;if(t.type==='expense'){spent+=t.amount;if(t.category==='Unexplained')unknownSpent+=t.amount;categories[t.category]=(categories[t.category]||0)+t.amount}else if(t.type==='income'){income+=t.amount;if(t.category==='Salary')salary+=t.amount;if(t.category==='Unexplained income')unknownIncome+=t.amount}}
  cents(income);cents(spent);for(const n of Object.values(categories))cents(n);return {balances:b,reserves:r,total,reserved,available:total-reserved,income,spent,net:income-spent,categories,month,salary,unknownSpent,knownSpent:spent-unknownSpent,unknownIncome};
+}
+function spendingBreakdown(state,transactions=state.transactions){
+ const groups=new Map(),types=new Map(state.accounts.map(a=>[a.id,a.type]));let spent=0,invested=0;
+ const broad={'Groceries':'Food & drink','Health':'Health & personal care','Gifts':'Gifts & charity','Other':'Other / uncategorised'};
+ for(const t of transactions){let category;
+  if(t.type==='expense'){category=broad[t.category]||t.category;spent+=t.amount}
+  else if(t.type==='transfer'&&types.get(t.to)==='investment'&&types.get(t.account)!=='investment'){category='Investment contributions';invested+=t.amount}
+  else continue;
+  groups.set(category,(groups.get(category)||0)+t.amount);
+ }
+ const total=safeSum([spent,invested]);const rows=[...groups].map(([category,value])=>({category,amount:value,percent:total?value/total*100:0})).sort((a,b)=>b.amount-a.amount||a.category.localeCompare(b.category));
+ return {rows,spent,invested,total};
 }
 function goalPlan(g,today=localDate()){
  const saved=goalSaved(g),remaining=Math.max(0,g.target-saved),progress=Math.min(100,saved/g.target*100);let months=null,perMonth=null,overdue=false;
@@ -152,5 +164,5 @@ function assistant(state,input){
 }
 function guessCategory(note){const q=note.toLowerCase();if(/coffee|lunch|dinner|food|cafe|restaurant/.test(q))return 'Food & drink';if(/petrol|fuel|taxi|parking|uber|bus/.test(q))return 'Transport';if(/grocery|groceries|supermarket/.test(q))return 'Groceries';if(/book|university|tuition|course/.test(q))return 'Education';return 'Other'}
 function demo(){let s=blank();for(const [name,kind,opening,color] of [['Everyday','bank',45000,'sand'],['Future fund','savings',1200000,'sage'],['Cash','cash',35000,'slate']])s=apply(s,{type:'account.add',name,kind,opening,color});s=apply(s,{type:'transaction.add',kind:'income',amount:800000,account:s.accounts[0].id,date:localDate(),category:'Salary',note:'Sample salary'});s=apply(s,{type:'card.add',name:'Everyday debit',account:s.accounts[0].id,last4:'1234',color:'slate'});s=apply(s,{type:'goal.add',name:'A little more freedom',target:1500000,deadline:'',icon:'shield',color:'sage'});s=apply(s,{type:'goal.allocate',id:s.goals[0].id,account:s.accounts[1].id,amount:800000});s=apply(s,{type:'goal.add',name:'China trip',target:1200000,deadline:'',icon:'plane',color:'sand'});s=apply(s,{type:'goal.allocate',id:s.goals[1].id,account:s.accounts[1].id,amount:250000});s=apply(s,{type:'transaction.add',kind:'expense',amount:2800,account:s.accounts[0].id,card:s.cards[0].id,date:localDate(),category:'Food & drink',note:'A good cup of coffee'});s=apply(s,{type:'transaction.add',kind:'expense',amount:12000,account:s.accounts[0].id,date:localDate(),category:'Transport',note:'Petrol'});return s}
-return {VERSION,MAX_MONEY,ACCOUNT_TYPES,COLORS,CATEGORIES,GOAL_ICONS,uid,clone,money,format,localDate,validDate,blank,canSetOpening,resetMoney,balances,reserves,goalSaved,summary,goalPlan,apply,validate,calc,assistant,guessCategory,demo};
+return {VERSION,MAX_MONEY,ACCOUNT_TYPES,COLORS,CATEGORIES,GOAL_ICONS,uid,clone,money,format,localDate,validDate,blank,canSetOpening,resetMoney,balances,reserves,goalSaved,summary,spendingBreakdown,goalPlan,apply,validate,calc,assistant,guessCategory,demo};
 });

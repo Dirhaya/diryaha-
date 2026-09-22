@@ -1,6 +1,6 @@
 {
   "name": "dirhaya",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "description": "Device-local AED accounts, debit cards, goals, balance checks and an offline arithmetic assistant.",
   "scripts": {
