@@ -19,6 +19,12 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.4: assistant beside your forms
+
+Open **Assistant / calculator** on any page or inside an entry sheet. Minimise and reopen without losing the conversation, unfinished calculation, or expense form. **Use amount** explicitly fills the active amount field; it never saves an entry. The full Assistant tab also has a minimise button that returns to the previous page. Chat is kept for the current session, not persisted in backups.
+
+New offline commands include `split 120 between 3`, `20% off 150`, `add 5% to 100`, `ans * 2`, `spending last month`, `spending on food this month`, and `budget`. Form-changing commands remain reviewable in the main Assistant tab, so they cannot replace an unfinished form from the floating helper.
+
 ## Version 1.3: broad category graph
 
 **Overview → Where your money goes** shows ranked bars with period and account selectors. **Activity** shows the same graph for its current filters, across all matching records. Groceries merge into food and drink visually; saved entries are unchanged. Unexplained spending stays separate. The privacy toggle hides values and bar proportions.
@@ -58,6 +64,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-105 automated checks passed for version 1.3. The user reported installing the original release; the graph has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
+115 automated checks passed for version 1.4. The user reported installing the original release; the floating helper has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.

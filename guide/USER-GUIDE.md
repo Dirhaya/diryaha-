@@ -94,6 +94,16 @@ For assets you still own, create an account with type **Investment account** and
 
 Percentages use spending plus gross investment contributions as their denominator. The graph uses the dates you entered; it cannot correct estimated dates or duplicate entries. Existing data is preserved on update. Bank statements and personal records are not included in app releases.
 
+## Keep the assistant beside an entry
+
+In version 1.4, tap **Assistant / calculator** while viewing a page or filling in an expense, income or transfer. The helper stays usable inside the entry sheet. On small screens it sits above the form; on wider screens it sits beside it. Tap the minus button to minimise, then reopen it to resume. The current form is preserved.
+
+For a positive calculation result with no more than two decimal places, **Use amount** fills the active amount field. It does not save the entry or change its account, date, note or category. Review and save the form yourself. Negative, zero, overly large and higher-precision answers are displayed without a Use amount button. You can still type a chosen rounded amount manually.
+
+The full Assistant tab has a minimise button that returns to the page you came from. Full and floating chat share conversation history, unfinished text and the last calculation. `ans` reuses the displayed last result, including its displayed rounding; it is cleared by Clear chat, privacy toggles and switching demo/real data. Chat is session-only and disappears when the app reloads. Minimise does not clear it.
+
+The floating helper can show balances and goals, answer spending questions, and calculate. A command that prepares a new entry stays in chat for review from the main Assistant tab after you finish or cancel your current form. It never replaces an unfinished entry automatically. Hiding amounts also clears chat and disables the helper until amounts are shown again.
+
 ## Ask the offline assistant
 
 Type any of these, substituting your actual account or goal names:
@@ -102,6 +112,16 @@ Type any of these, substituting your actual account or goal names:
 - `(10000 - 1000 - 2000 - 1500) / 2`
 - `20 percent of 500`
 - `7 * 9`
+- `split 120 between 3`
+- `20% off 150`
+- `add 5% to 100`
+- `ans * 2`
+- `spending last month`
+- `salary last month`
+- `income last month`
+- `spending on food this month`
+- `spending on transport last month`
+- `budget`
 - `balance`
 - `salary`
 - `unexplained`

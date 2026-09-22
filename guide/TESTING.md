@@ -62,3 +62,11 @@ Pending iPhone check: save a backup, confirm the reset, verify retained accounts
 Graph elements use native HTML/CSS and existing app modules, with no external chart service or new runtime dependencies. Existing data is not migrated or overwritten. The account type allowlist gains investment; old backups remain readable by the new release. A backup with investment accounts requires this release or later to restore.
 
 Pending hardware check: confirm graph labels and selectors fit the iPhone screen, change periods and accounts, toggle hidden amounts, and relaunch offline. No real Safari or iPhone test was available for this release; the automated UI uses a minimal DOM adapter.
+
+## Version 1.4: floating assistant and offline commands
+
+115 automated checks pass. New core tests cover exact bill splitting, discount/markup arithmetic, division-by-zero rejection, last-month queries, category aggregation and spending-limit replies. UI checks cover keeping the helper within the active modal, preserving the form and unfinished helper text across minimise/reopen, explicit amount insertion without storage writes, shared last-result arithmetic, privacy clearing, retaining entry drafts without replacing forms, and refusing to insert negative or high-precision amounts.
+
+The helper uses existing app modules, native DOM elements and the existing calculator. It makes no new network requests, changes no storage schema and never auto-saves a financial action. App updates preserve saved records. Chat and calculator state are session-only.
+
+Pending iPhone acceptance: open an expense, type an amount and note, open the helper, calculate, minimise and check the draft remains. Reopen, use a result, check other fields and save. Repeat with the keyboard visible and in landscape; confirm scrolling, focus and minimise remain reachable. Test offline relaunch. Automated DOM doubles do not verify Safari layout, top-layer rendering or keyboard behavior; no physical iPhone test is claimed.
