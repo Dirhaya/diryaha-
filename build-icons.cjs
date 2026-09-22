@@ -1,0 +1,6 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.join(__dirname,'public/icons');
+const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#e9e1d5"/><g fill="none" stroke="#756750" stroke-width="13" stroke-linecap="round"><path d="M145 363V237a111 111 0 0 1 222 0v126M194 363V244a62 62 0 0 1 124 0v119M256 80v41M113 410h286"/></g><path d="m351 94 23-23 23 23-23 23Z" fill="#9b8b70"/></svg>`;
+fs.writeFileSync(path.join(root,'icon.svg'),svg);
+const {createCanvas,loadImage}=require((process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES||path.join(__dirname,'node_modules'))+'/@napi-rs/canvas');
+(async()=>{const image=await loadImage(Buffer.from(svg));for(const [name,size] of [['icon-192.png',192],['icon-512.png',512],['apple-touch-icon.png',180],['maskable-512.png',512]]){const canvas=createCanvas(size,size),ctx=canvas.getContext('2d');ctx.fillStyle='#e9e1d5';ctx.fillRect(0,0,size,size);if(name.startsWith('maskable'))ctx.drawImage(image,size*.12,size*.12,size*.76,size*.76);else ctx.drawImage(image,0,0,size,size);fs.writeFileSync(path.join(root,name),canvas.toBuffer('image/png'))}console.log('Generated all PWA and iPhone icons.');})();

@@ -1,0 +1,6 @@
+node_modules/
+*.dirhaya
+.env
+.env.*
+.DS_Store
+preview.html

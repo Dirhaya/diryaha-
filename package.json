@@ -1,0 +1,12 @@
+{
+  "name": "dirhaya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Device-local AED accounts, debit cards, goals, balance checks and an offline arithmetic assistant.",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "preview:build": "node build-preview.cjs",
+    "serve": "python3 -m http.server 4173 --directory public"
+  },
+  "engines": {"node": ">=22"}
+}
