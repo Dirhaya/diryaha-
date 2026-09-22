@@ -19,6 +19,10 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.4.1: Laundry category
+
+Choose **Laundry** when adding, editing or explaining an expense. It appears separately in the spending graph. The offline assistant recognises laundry and dry-cleaning expense notes, and supports `spending on laundry this month`. Existing entries keep their categories.
+
 ## Version 1.4: assistant beside your forms
 
 Open **Assistant / calculator** on any page or inside an entry sheet. Minimise and reopen without losing the conversation, unfinished calculation, or expense form. **Use amount** explicitly fills the active amount field; it never saves an entry. The full Assistant tab also has a minimise button that returns to the previous page. Chat is kept for the current session, not persisted in backups.

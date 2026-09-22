@@ -84,6 +84,10 @@ To move a whole entry, choose **Edit entry** and change **Date**. In **Explain p
 
 Do not add an extra expense for money already included in an unexplained balance-check gap. Split or explain the existing entry to avoid counting it twice. Save a backup before changing old records. Version 1.1 preserves version-1 records and uses the same database; updating does not reset them.
 
+## Record laundry spending
+
+In version 1.4.1, choose **Add entry → Expense → Category → Laundry**. To recategorise a saved expense, open it in Activity and choose **Edit entry → Category → Laundry**. The graph shows Laundry separately, and the assistant understands `spending on laundry this month`. Existing entries are not automatically recategorised.
+
 ## See where your money goes
 
 In version 1.3, open **Overview → Where your money goes** and choose a period and account. The graph ranks broad categories by amount. **All recorded dates** combines your saved history. In **Activity**, the graph follows the account, month, type and search filters and includes matching records beyond the first displayed page.

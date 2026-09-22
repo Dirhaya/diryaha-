@@ -4,7 +4,7 @@
 const VERSION=1,MAX_MONEY=999999999999;
 const ACCOUNT_TYPES=['bank','savings','cash','wallet','prepaid','investment'];
 const COLORS=['sand','sage','slate','clay','lilac'];
-const CATEGORIES=['Food & drink','Groceries','Transport','Shopping','Bills','Education','Health','Entertainment','Travel','Gifts','Other','Salary','Allowance','Refund','Other income','Unexplained','Unexplained income'];
+const CATEGORIES=['Food & drink','Groceries','Transport','Shopping','Bills','Laundry','Education','Health','Entertainment','Travel','Gifts','Other','Salary','Allowance','Refund','Other income','Unexplained','Unexplained income'];
 const INCOME_CATEGORIES=['Salary','Allowance','Refund','Other income','Unexplained income'];
 function validCategory(kind,category){return kind==='income'?INCOME_CATEGORIES.includes(category):kind==='expense'?CATEGORIES.includes(category)&&!INCOME_CATEGORIES.includes(category):true}
 const GOAL_ICONS=['spark','shield','plane','car','home','book','laptop','gift','heart'];
@@ -170,7 +170,7 @@ function assistant(state,input){
   return {text:'I can do maths, show balances and goals, or prepare simple entries. Try “2500 - 350”, “balance”, or “expense 25 from Cash for coffee”. Type “help” for all commands.'};
  }catch(error){return {text:error.message,error:true}}
 }
-function guessCategory(note){const q=note.toLowerCase();if(/coffee|lunch|dinner|food|cafe|restaurant/.test(q))return 'Food & drink';if(/petrol|fuel|taxi|parking|uber|bus/.test(q))return 'Transport';if(/grocery|groceries|supermarket/.test(q))return 'Groceries';if(/book|university|tuition|course/.test(q))return 'Education';return 'Other'}
+function guessCategory(note){const q=note.toLowerCase();if(/\blaundry\b|\bdry[ -]clean(?:ing)?\b/.test(q))return 'Laundry';if(/coffee|lunch|dinner|food|cafe|restaurant/.test(q))return 'Food & drink';if(/petrol|fuel|taxi|parking|uber|bus/.test(q))return 'Transport';if(/grocery|groceries|supermarket/.test(q))return 'Groceries';if(/book|university|tuition|course/.test(q))return 'Education';return 'Other'}
 function demo(){let s=blank();for(const [name,kind,opening,color] of [['Everyday','bank',45000,'sand'],['Future fund','savings',1200000,'sage'],['Cash','cash',35000,'slate']])s=apply(s,{type:'account.add',name,kind,opening,color});s=apply(s,{type:'transaction.add',kind:'income',amount:800000,account:s.accounts[0].id,date:localDate(),category:'Salary',note:'Sample salary'});s=apply(s,{type:'card.add',name:'Everyday debit',account:s.accounts[0].id,last4:'1234',color:'slate'});s=apply(s,{type:'goal.add',name:'A little more freedom',target:1500000,deadline:'',icon:'shield',color:'sage'});s=apply(s,{type:'goal.allocate',id:s.goals[0].id,account:s.accounts[1].id,amount:800000});s=apply(s,{type:'goal.add',name:'China trip',target:1200000,deadline:'',icon:'plane',color:'sand'});s=apply(s,{type:'goal.allocate',id:s.goals[1].id,account:s.accounts[1].id,amount:250000});s=apply(s,{type:'transaction.add',kind:'expense',amount:2800,account:s.accounts[0].id,card:s.cards[0].id,date:localDate(),category:'Food & drink',note:'A good cup of coffee'});s=apply(s,{type:'transaction.add',kind:'expense',amount:12000,account:s.accounts[0].id,date:localDate(),category:'Transport',note:'Petrol'});return s}
 return {VERSION,MAX_MONEY,ACCOUNT_TYPES,COLORS,CATEGORIES,GOAL_ICONS,uid,clone,money,format,localDate,validDate,blank,canSetOpening,resetMoney,balances,reserves,goalSaved,summary,spendingBreakdown,goalPlan,apply,validate,calc,assistant,guessCategory,demo};
 });
