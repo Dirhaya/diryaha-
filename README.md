@@ -19,6 +19,12 @@ Open the published HTTPS address in Safari. Choose **Share → Add to Home Scree
 
 A ZIP downloaded in Files is source code, not an iPhone installer. The optional HTML preview does not save changes.
 
+## Version 1.6: portfolio holdings
+
+**Accounts → Investments → Add portfolio** groups several companies or funds in one account. Each holding records shares (up to six decimals), total original cost and manually entered current value. Holding value is a breakdown of the portfolio balance, never an additional copy of that balance.
+
+Add existing shares already included in the portfolio, move funding from another recorded account, or explicitly add an existing asset not yet counted anywhere. Valuation changes adjust total assets without becoming spending or salary. Full sales convert holding value into cash within the portfolio. Partial sales and live prices are not supported. Existing account data is preserved.
+
 ## Version 1.5: quick expense buttons
 
 **Overview** and **Activity** now have quick buttons for Food & drink, Transport, Laundry, Groceries, Bills and Shopping. Tap a category, enter an amount, check the payment account and save. The date defaults to today; an optional details section contains the date and note. Nothing is recorded by tapping a shortcut alone.
@@ -80,6 +86,6 @@ After changing app code, increment BUILD in `public/sw.js`, run tests, then `nod
 node build-pages.cjs
 ```
 
-125 automated checks passed for version 1.5. The user reported installing the original release; the quick-entry flow has not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
+135 automated checks passed for version 1.6. The user reported installing the original release; the portfolio forms have not been tested on an iPhone. Automated tests use simulated browser APIs; see the verification guide for details.
 
 Dirhaya is a coined name inspired by dirham and ghaya (goal), not a trademark-clearance claim.

@@ -84,3 +84,9 @@ Physical iPhone update delivery remains unverified. Pending acceptance: update a
 Existing core validation and atomic persistence handle quick entries. No schema, storage name or stored-record migration was added. Payment defaults are computed from saved expense history; amounts are never repeated automatically.
 
 Pending iPhone check: tap a shortcut, verify the keyboard and payment selector are reachable, expand date/note, use and minimise the calculator, save, then reopen offline and check the default. Automated checks use the DOM adapter; no real iPhone layout/keyboard test is claimed.
+
+## Version 1.6: investment holdings
+
+135 automated checks pass. Holdings tests verify exact wealth conservation for purchases, no expense/salary inflation, multiple companies within one portfolio, no double counting of already-included assets, unrecorded assets added once, valuation deltas, full sales to cash, explicit funding different from original cost, protected backing balances and generated ledger entries, invalid/fractional quantities, atomic rejection, JSON backup round trips and reset clearing holdings. UI tests submit actual holding forms and verify saved quantities and valuation totals.
+
+Holdings are optional per-account metadata and their value is included in the existing account balance. No database migration, storage-name change or automatic rewrite is performed. Ledger and holdings changes are committed together by the existing atomic storage path. Existing investment accounts without holdings remain valid. Physical iPhone portfolio form/layout testing remains pending.

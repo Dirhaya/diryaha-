@@ -161,3 +161,25 @@ The category is already chosen and the date is today. Open **Date & note · opti
 The selected account or linked card comes from your latest saved expense in that category. If there is no category history, the latest expense account is used; with no expenses, the first account is selected. You can change it before saving. Cancelled or failed entries do not change this default. Deleting or resetting the source history changes which default can be remembered. These preferences remain separate for each device's records and for sample mode.
 
 The floating assistant/calculator works inside the quick form, including Use amount. Always review the payment account before saving. A shortcut uses today's date even if Activity is currently filtered to an older month.
+
+## Track shares inside one investment portfolio
+
+In version 1.6, open **Accounts → Investments → Add portfolio**. One portfolio can hold multiple companies. Enter an opening total only for cash and investments not already represented by another app account; otherwise start at zero.
+
+Open the portfolio and choose **Add stock / holding**. Enter a company or fund, the number of shares, total original cost, and total current value. For example, 400 shares costing AED 1,000 and currently worth AED 1,000 are one AED 1,000 asset, not AED 1,000 per share. Fractional shares support up to six decimals.
+
+Choose how the money is recorded:
+
+- **Already included in this portfolio’s balance:** labels part of its existing value as shares. It does not add wealth. Use this after you already entered an opening balance or transfer.
+- **Move money from another app account:** records a transfer, then assigns the holding. Expand Source account to choose where the funds come from. Amount moved defaults to original cost; for an old individual-stock account already valued differently, explicitly use its current recorded value. The difference between transferred amount and current holding value becomes a valuation adjustment.
+- **Existing investment not yet counted anywhere:** adds its current value to the portfolio as an asset adjustment. Use only when that value is absent from all other accounts.
+
+The portfolio shows share value and cash/value not yet assigned to holdings. These add up to the portfolio total, which is included once in total money. Goal reservations remain part of those same assets. Valuations are manual and do not fetch live prices.
+
+Tap a holding to update its quantity, original cost or current total value. The change in current value updates total money as a valuation adjustment, not income or spending. Do not use quantity/cost edits to conceal a purchase: funding for additional purchases must also be recorded. Separate purchases can be entered as separate holdings/lots with the same company name.
+
+**Sell all shares** removes that holding and leaves the net proceeds as portfolio cash. Enter proceeds after any fees, then record a transfer if you withdraw the cash. Partial sales are not supported in this release. **Remove share details only** requires confirmation and keeps the account value unchanged; it does not sell anything or remove wealth.
+
+You can retain your old individual-stock accounts. To consolidate a balance that has no holding details yet, add it to the portfolio using Move money from another app account and its actual recorded value; do not also choose the unrecorded option. Reserved goal money may need to be moved or released separately. Nothing is automatically merged or deleted.
+
+The app prevents withdrawals that would spend the value still assigned to shares. Update or sell the holding first. Portfolio-generated financial records are managed through the holding, not deleted or edited as ordinary expenses. Backups include holding details; use version 1.6 or later to manage them. Reset balances & history also clears investment holdings while keeping portfolio account names.
