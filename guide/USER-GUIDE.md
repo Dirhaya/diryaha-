@@ -213,3 +213,11 @@ Physical iPhone passkey prompts, background transitions, and Calendar imports st
 Install this release once using Settings → Check for updates, then Reload update. Future checks run on opening, returning to the visible app, reconnecting, and every five minutes while open and online. Updates apply automatically after 30 seconds without interaction on an overview page. Open forms, Settings, the assistant, calculator work, authentication, and pending saves defer automatic reloads. Finish or close your work first. A manual Reload update option remains available.
 
 Updates do not clear financial records. Offline use continues with downloaded files. An app that stays closed cannot promise an immediate update; open it online to receive new releases. A session guard prevents repeatedly reloading the same build.
+
+
+## Ghars — غرس (version 1.8)
+Dirhaya is now Ghars. The address stays the same. Your accounts, goals, investments, reminders and lock settings stay on the same device. The welcome screen appears once: tap Begin to enter Overview. The planting quote appears only on welcome; the short patience-and-building excerpt appears on Overview.
+
+Choose Settings → Your space → A quieter palette → Night for charcoal surfaces and muted olive accents. Warm beige and Soft grey remain available. The choice is saved locally and included in backups.
+
+Older installations may retain the old icon or Home Screen label until the platform refreshes it. Do not delete the app or clear website data to change branding. Existing backup files remain supported.

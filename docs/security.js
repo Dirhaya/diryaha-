@@ -15,7 +15,7 @@ async function authenticate(c=config()){
 }
 async function prepare(){
  if(enabled())throw Error('The app lock is already enabled.');if(!await supported())throw Error('Device passkeys are unavailable here. Open the installed HTTPS app on a device with Face ID, Touch ID or a screen lock.');
- const challenge=random(),credential=await navigator.credentials.create({publicKey:{challenge,rp:{name:'Dirhaya',id:root.location.hostname},user:{id:random(),name:'Dirhaya device lock',displayName:'Dirhaya device lock'},pubKeyCredParams:[{type:'public-key',alg:-7}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},attestation:'none',timeout:60000}});
+ const challenge=random(),credential=await navigator.credentials.create({publicKey:{challenge,rp:{name:'Ghars',id:root.location.hostname},user:{id:random(),name:'Ghars device lock',displayName:'Ghars device lock'},pubKeyCredParams:[{type:'public-key',alg:-7}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},attestation:'none',timeout:60000}});
  if(!credential||credential.type!=='public-key'||credential.response.getPublicKeyAlgorithm?.()!==-7||!credential.response.getPublicKey?.())throw Error('This browser does not expose the required passkey verification data. Lock was not enabled.');
  await checkData(credential.response,challenge,'webauthn.create');const recovery=Array.from(random().slice(0,16),x=>x.toString(16).padStart(2,'0')).join('').toUpperCase();
  const candidate={version:1,id:b64(credential.rawId),publicKey:b64(credential.response.getPublicKey()),recoveryHash:b64(await hash(utf8.encode(recovery)))};

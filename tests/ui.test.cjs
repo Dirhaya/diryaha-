@@ -7,7 +7,7 @@ function environment(seed=C.demo(),preview=false){
  const ctx={DIRHAYA_PREVIEW:preview,DirhayaCore:C,DirhayaStorage:storage,DirhayaReminders:require('../public/reminders.js'),DirhayaSecurity:{enabled:()=>false,cancel(){}},document,console,window:null,navigator:{},location:{protocol:'file:'},innerWidth:440,innerHeight:956,matchMedia:()=>({matches:false}),setTimeout:()=>1,clearTimeout(){},FormData:class{constructor(form){this.values=form.values||{}}get(key){return this.values[key]??null}},Date,Math,Promise,URL,Event:class{constructor(type){this.type=type}},File:class{},Blob,addEventListener(){},scrollTo(){},isSecureContext:false};ctx.window=ctx;
  let src=fs.readFileSync(require.resolve('../public/app.js'),'utf8');src=src.replace(/init\(\);\s*\}\)\(\);\s*$/,`window.UI={tryAutoUpdate,autoCheckUpdates,init,render,dispatch,transactionForm,goalForm,accountForm,allocateForm,installSheet,sendMessage,checkOffline,refreshOfflineStatus,homeView,accountsView,goalsView,activityView,settingsView,chatView,get state(){return state},setState(s){state=s;realState=s},get messages(){return messages}};})();`);vm.runInNewContext(src,ctx);ctx.UI.setState(C.clone(seed));return {ctx,ui:ctx.UI,el,elements,get writes(){return writes},get stored(){return stored}};
 }
-test('all main views render from actual valid data without template exceptions',async()=>{const e=environment();for(const view of ['home','accounts','goals','activity','assistant']){await e.ui.dispatch('view:'+view);assert(e.el('#app').innerHTML.includes('dirhaya'));assert(!e.el('#app').innerHTML.includes('NaN'))}await e.ui.dispatch('settings');assert.match(e.el('#app').innerHTML,/Yours, on this device/)});
+test('all main views render from actual valid data without template exceptions',async()=>{const e=environment();for(const view of ['home','accounts','goals','activity','assistant']){await e.ui.dispatch('view:'+view);assert(e.el('#app').innerHTML.includes('غرس'));assert(!e.el('#app').innerHTML.includes('NaN'))}await e.ui.dispatch('settings');assert.match(e.el('#app').innerHTML,/Yours, on this device/)});
 test('account and goal names are HTML escaped',()=>{const s=C.demo();s.accounts[0].name='<img src=x onerror=alert(1)>';s.goals[0].name='<script>bad</script>';const e=environment(s);assert.match(e.ui.accountsView(),/&lt;img/);assert(!e.ui.accountsView().includes('<img src=x'));assert.match(e.ui.goalsView(),/&lt;script&gt;/)});
 test('demo mutations never overwrite actual saved records',async()=>{const s=C.blank(),e=environment(s);await e.ui.dispatch('demo');assert.equal(e.ui.state.accounts.length,3);await e.ui.dispatch('privacy');assert.equal(e.writes,0);assert.equal(e.stored.accounts.length,0);await e.ui.dispatch('exit-demo');assert.equal(e.ui.state.accounts.length,0)});
 test('privacy toggle hides account values and removes prior chat messages',async()=>{const e=environment();await e.ui.dispatch('view:assistant');e.ui.sendMessage('balance');assert(e.ui.messages.length>0);await e.ui.dispatch('privacy');assert.equal(e.ui.messages.length,0);assert.match(e.ui.homeView(),/••••/);assert(!e.ui.accountsView().includes('8,302.00'))});
@@ -97,13 +97,13 @@ test('recovery failure stays locked and successful recovery leaves records uncha
 });
 
 test('new installation asks for its own name and saves it locally',async()=>{
- const e=environment(C.blank());await e.ui.init();assert.match(e.el('#sheet').innerHTML,/Welcome to Dirhaya/);
+ const e=environment(C.blank());await e.ui.init();assert.match(e.el('#sheet').innerHTML,/ما غرسناه/);await e.ui.dispatch('ghars-begin');assert.match(e.el('#sheet').innerHTML,/Welcome to Ghars/);
  const f=e.el('#welcome-name-form');f.values={name:'Aisha'};await f.onsubmit({preventDefault(){}});
  assert.equal(e.stored.settings.name,'Aisha');assert.equal(e.stored.settings.needsName,false);assert.equal(e.el('#sheet').open,false);
  const again=environment(e.stored);await again.ui.init();assert.equal(again.el('#sheet').open,false);
 });
 test('existing saved names remain unchanged with no onboarding prompt',async()=>{
- const s=C.blank();s.settings.name='Existing person';delete s.settings.needsName;
+ const s=C.blank();s.settings.name='Existing person';s.settings.gharsWelcomed=true;delete s.settings.needsName;
  const e=environment(s);await e.ui.init();assert.equal(e.el('#sheet').open,false);assert.equal(e.ui.state.settings.name,'Existing person');assert.equal(e.writes,0);
 });
 
@@ -124,4 +124,19 @@ test('automatic update avoids offline checks and repeated reload attempts',async
  const e=environment(),m=mockUpdate(e);e.ctx.navigator.onLine=false;await e.ui.autoCheckUpdates(true);assert.equal(m.updates,0);
  e.ctx.navigator.onLine=true;await e.ui.autoCheckUpdates(true);assert.equal(m.updates,1);
  e.ctx.sessionStorage={getItem:()=> '1',setItem(){}};assert.equal(e.ui.tryAutoUpdate(Date.now()+31000),false);assert.equal(m.reloads,0);
+});
+
+test('Ghars welcome precedes overview quote and preserves existing records',async()=>{
+ const s=C.demo();s.settings.needsName=false;const e=environment(s),before=JSON.stringify(s.accounts);
+ await e.ui.init();assert.match(e.el('#sheet').innerHTML,/ما غرسناه بالأمس بدأ اليوم يؤتي ثماره/);
+ assert(!e.el('#sheet').innerHTML.includes('وعلينا أن نصبر'));
+ await e.ui.dispatch('ghars-begin');assert.equal(e.el('#sheet').open,false);
+ assert.match(e.ui.homeView(),/وعلينا أن نصبر ونواصل مسيرة البناء/);assert(!e.ui.homeView().includes('ما غرسناه'));
+ assert.equal(JSON.stringify(e.stored.accounts),before);assert.deepEqual(e.stored.transactions,s.transactions);
+ const again=environment(e.stored);await again.ui.init();assert.equal(again.el('#sheet').open,false);
+});
+test('night palette persists and backup validation keeps existing balances',async()=>{
+ const e=environment(),before=C.balances(e.stored);await e.ui.dispatch('theme:night');
+ assert.equal(e.stored.settings.theme,'night');assert.deepEqual(C.balances(e.stored),before);C.validate(JSON.parse(JSON.stringify(e.stored)));
+ assert.match(e.ui.settingsView(),/data-action="theme:night"/);
 });

@@ -1,3 +1,6 @@
+# Ghars — غرس
+
+Formerly Dirhaya. Same hosted address and device database.
 # Dirhaya · درهايا
 
 A beige/grey personal money app for iPhone Home Screen use. It tracks bank accounts, linked debit cards, cash, prepaid balances, savings goals, salary, and unexplained spending. Includes a local arithmetic assistant and device backups.
@@ -97,3 +100,13 @@ Settings → Daily reminders supports up to 24 custom daily times. Export a repe
 Settings → Face ID / device lock creates and verifies a device passkey. Save the recovery code before enabling. The app locks on startup and when leaving it, preserving unfinished entry forms. The operating system chooses Face ID, Touch ID, or device passcode. This is a local screen lock, not encryption of device records or backups. Financial data remains unchanged.
 
 See the user guide for setup, recovery, and Calendar import limitations.
+
+
+## Version 1.8: Ghars and Night theme
+Arabic wordmark, botanical welcome and a short quote on Overview. The welcome is shown once per device and preserves all existing financial records. Tap Begin to continue; new users can then enter their name. Settings offers beige, grey and Night palettes. The installed app manifest and icons now use Ghars. Some devices retain an older Home Screen name or icon; do not delete the app or clear storage to refresh branding.
+
+The original quote belongs only to the welcome screen; Overview uses the user's selected excerpt. Sources:
+- https://www.wam.ae/ar/article/hsyqwssq-دراسة-بعنوان-زايد-الانسان
+- https://www.albayan.ae/across-the-uae/news-and-reports/2019-05-24-1.3568225
+
+Quotes are historical excerpts, not endorsement of this app. Existing .dirhaya backups, database and passkey keys remain compatible.

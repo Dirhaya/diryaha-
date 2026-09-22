@@ -102,3 +102,6 @@ These checks are not a real Safari or iPhone test. Face ID/passcode prompts, Cal
 
 
 Version 1.7.2: 152 tests pass. Added automatic update checks for idle application, open drafts, settings, calculator, screen lock, offline checks, and reload-loop prevention. Browser lifecycle APIs are simulated; physical iPhone testing remains outstanding.
+
+
+Version 1.8: 154 automated checks passed. Added quote ordering, one-time welcome, existing financial records unchanged through Begin, and Night theme persistence and backup validation. Production PNG icons were inspected. No physical iPhone layout or Home Screen metadata-refresh test was performed. Arabic text uses native device font shaping; the generated concept image is a design reference, not a pixel-identical screenshot.

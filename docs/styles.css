@@ -38,3 +38,33 @@ dialog{width:min(490px,calc(100vw - 32px));max-height:calc(100dvh - 50px);border
 .holdings-list{margin-top:20px}.holding-tile{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;width:100%;text-align:left;padding:16px 0;border-bottom:1px solid var(--line)}.holding-tile>span{min-width:0;overflow-wrap:anywhere}.holding-tile>span:last-child{text-align:right}.holding-tile b{display:block;font-size:14px;font-weight:550}.holding-tile small{display:block;font-size:11px;line-height:1.7;color:var(--muted);margin-top:5px}.holdings-list>.btn{margin-top:15px}
 
 .reminder-row{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:12px 0;font-size:13px}.reminder-row input{padding:10px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:9px;font-size:16px;min-width:0}.recovery-code{display:block;overflow-wrap:anywhere;font-size:20px;line-height:1.8;padding:15px;background:var(--panel);border-radius:12px;user-select:all}.app-locked #app,.app-locked #sheet,.app-locked #assistant-dock,.app-locked #toasts,.app-locked #update-notice{visibility:hidden!important}.lock-screen{width:100vw;max-width:none;height:100dvh;max-height:none;inset:0;margin:0;border:0;border-radius:0;padding:24px;background:var(--bg)}.lock-screen[open]{display:flex;align-items:center;justify-content:center}.lock-screen::backdrop{background:var(--bg)}.lock-content{width:min(100%,380px)}.lock-content>p,.lock-content details{font-size:13px;line-height:1.8;margin:20px 0}.lock-content h1{font-size:28px}.lock-content details{padding:15px;border:1px solid var(--line);border-radius:12px}.lock-content #lock-error{color:var(--danger)}
+
+/* Ghars: Arabic wordmark, botanical welcome, and device-local night palette. */
+:root{--accent:#78816c;--accent-dark:#606a54}
+.wordmark,.welcome-logo{font-family:"Geeza Pro","Noto Naskh Arabic","Traditional Arabic",serif;font-weight:600;letter-spacing:0;line-height:1.15}
+.brand .wordmark{font-size:44px}.brand-arabic{font-size:9px;letter-spacing:3px;margin-top:2px;display:block}.brand-symbol{display:none}
+.ghars-quote{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:18px 55px 18px 22px;margin-bottom:24px;text-align:center}
+.ghars-quote p{font-family:"Geeza Pro","Noto Naskh Arabic","Traditional Arabic",serif;font-size:24px;line-height:1.65;margin:0 0 5px;color:var(--ink)}
+.ghars-quote small{color:var(--muted);font-size:12px}.ghars-quote .botanical{position:absolute;right:-5px;bottom:-16px;width:65px;height:100px;color:var(--accent);opacity:.55}
+dialog.ghars-intro{top:0;bottom:0;max-height:100dvh;height:100dvh;width:100%;max-width:540px;border-radius:0;padding:calc(30px + env(safe-area-inset-top)) 32px calc(22px + env(safe-area-inset-bottom));background:var(--bg)}
+.ghars-intro>.sheet-head,.ghars-intro>.sheet-handle,.ghars-intro>#assistant-dock{display:none}
+.ghars-welcome{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.welcome-logo{font-size:clamp(100px,24vw,150px);color:var(--ink)}.welcome-latin{font-family:Georgia,serif;letter-spacing:9px;font-size:16px;margin-top:12px}
+.ghars-welcome blockquote{margin:35px 0 0}.ghars-welcome blockquote p{font-family:"Geeza Pro","Traditional Arabic",serif;font-size:clamp(25px,6vw,32px);line-height:1.8;margin:0 0 18px}.ghars-welcome blockquote footer{font-size:14px;color:var(--muted)}
+.ghars-welcome>.botanical{height:150px;min-height:65px;color:var(--accent);margin:18px 0}.ghars-welcome .btn{max-width:340px;border-radius:28px;font-size:17px;min-height:52px}.welcome-note{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:0}
+body.night{--bg:#1b1e1b;--surface:#232823;--panel:#2b302b;--sand:#343a32;--ink:#ecece4;--muted:#b3b9ac;--line:#424a40;--accent:#a4b391;--accent-dark:#a4b391;--soft:#353d31;--green:#b3c7a6;--green-soft:#354233;--danger:#e3a78f;--shadow:none;color-scheme:dark;background:var(--bg);color:var(--ink)}
+body.night .btn.primary{background:#a4b391;color:#172015}body.night input,body.night select,body.night textarea{background:var(--surface);color:var(--ink)}
+body.night .sidebar,body.night .bottom-nav,body.night .topbar,body.night dialog,body.night .dock-panel{background:var(--bg);color:var(--ink)}
+body.night .card,body.night .account-card,body.night .goal-card,body.night .message-bubble,body.night .summary-chip{background:var(--surface);color:var(--ink)}
+body.night .info-box,body.night .gentle-banner,body.night .quick-entry,body.night .install-status,body.night .theme-option,body.night .segments{background:var(--panel);color:var(--ink)}
+body.night .wealth-art{opacity:.15}body.night .lock-screen{background:var(--bg)}body.night .lock-screen::backdrop{background:#1b1e1b}
+@media(max-width:560px){.brand .wordmark{font-size:35px}.ghars-quote p{font-size:21px}.ghars-quote{padding:14px 38px 14px 14px;margin-bottom:20px}.ghars-quote small{font-size:11px}.theme-options{flex-wrap:wrap}}
+@media(max-height:700px){.ghars-welcome>.botanical{height:65px;margin:10px 0}.ghars-welcome blockquote{margin-top:20px}.welcome-logo{font-size:90px}}
+.page-heading h1{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+body.night .nav,body.night .bottom-tab,body.night .field,body.night .hint-btn,body.night .wealth-note,body.night .wealth-bottom small,body.night .wealth-amount small,body.night .wealth-card .eyebrow,body.night .gentle-banner p,body.night .gentle-banner b{color:var(--muted)}
+body.night .nav.active,body.night .avatar,body.night .mini-icon,body.night .mini-icon.out,body.night .unknown-stat,body.night .unexplained .transaction-icon{background:var(--soft);color:var(--ink)}
+body.night .debit-tile{background:var(--surface)}
+body.night .wealth-card{border-color:var(--line)}
+body.night .toast,body.night .message.user .message-bubble{background:#a4b391;color:#172015}
+body.night .toast.error,body.night .error-banner,body.night .error-inline{background:#4a302b;color:#f4c1ac;border-color:#735047}
+body.night .transaction.income .transaction-value b{color:var(--green)}
