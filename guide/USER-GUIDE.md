@@ -221,3 +221,7 @@ Dirhaya is now Ghars. The address stays the same. Your accounts, goals, investme
 Choose Settings → Your space → A quieter palette → Night for charcoal surfaces and muted olive accents. Warm beige and Soft grey remain available. The choice is saved locally and included in backups.
 
 Older installations may retain the old icon or Home Screen label until the platform refreshes it. Do not delete the app or clear website data to change branding. Existing backup files remain supported.
+
+
+## Backups greyed out in the iPhone picker
+New backups use the .json extension. Existing .dirhaya backups remain supported: Restore a backup now allows any file to be selected, then checks its contents and shows a confirmation before replacing records. Invalid files are rejected. If a backup is greyed out, close the file picker, use Settings → Check for updates → Reload update, then try Restore a backup again. Keep the original installation until your restored records are confirmed.

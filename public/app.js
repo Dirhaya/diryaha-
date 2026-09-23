@@ -2,7 +2,7 @@
 (() => {
 const Security=DirhayaSecurity,Reminders=DirhayaReminders;
 let appLocked=false,authBusy=false,reminderDraft=[];
-const APP_BUILD='dirhaya-v1-20260923-01';
+const APP_BUILD='dirhaya-v1-20260923-02';
 let availableBuild="",lastInteraction=Date.now(),pendingWrites=0,lastAutoCheck=0,autoChecking=false,reloading=false;
 let updateAvailable=false;const watchedUpdates=new WeakSet();
 const C=DirhayaCore,S=DirhayaStorage,$=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -213,7 +213,7 @@ for(const event of ['pointerdown','keydown','input','change'])document.addEventL
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='hidden'){lastInteraction=Date.now();autoCheckUpdates(true)}});
 setTimeout(autoUpdateTick,10000);
 async function saveFile(blob,name){const file=new File([blob],name,{type:blob.type});if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Ghars'});return}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)}
-async function backup(){if(!state)return;const data={...C.clone(state),exportedAt:new Date().toISOString()};await saveFile(new Blob([JSON.stringify(data)],{type:'application/json'}),`Ghars-${demo?'DEMO-':''}${C.localDate()}.dirhaya`);await save({type:'settings',lastBackup:Date.now()});if(view==='settings')render();toast('Backup exported. Keep a copy in Files.')}
+async function backup(){if(!state)return;const data={...C.clone(state),exportedAt:new Date().toISOString()};await saveFile(new Blob([JSON.stringify(data)],{type:'application/json'}),`Ghars-${demo?'DEMO-':''}${C.localDate()}.json`);await save({type:'settings',lastBackup:Date.now()});if(view==='settings')render();toast('Backup exported. Keep a copy in Files.')}
 function csvCell(value){let str=String(value??'');if(/^[=+\-@\t\r]/.test(str))str="'"+str;return '"'+str.replace(/"/g,'""')+'"'}
 async function exportCSV(){const rows=[['Date','Type','Amount AED','From / account','To','Debit card','Category','Note']];for(const t of [...state.transactions].sort((a,b)=>a.date.localeCompare(b.date)))rows.push([t.date,t.type,(t.amount/100).toFixed(2),accountName(t.account),t.to?accountName(t.to):'',t.card?cardName(t.card):'',t.category,t.note]);await saveFile(new Blob(['\uFEFF'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),`Ghars-entries-${C.localDate()}.csv`);toast('Entries exported.')}
 $('#restore-file').addEventListener('change',async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;try{if(file.size>35*1024*1024)throw new Error('Choose a Ghars backup smaller than 35 MB.');const data=JSON.parse(await file.text());C.validate(data);restoring=data;openSheet('Restore this backup?',`This replaces the current ${demo?'demo':'device'} records. A snapshot is kept so you can undo the restore.`, `<div class="info-box"><b>${data.accounts.length}</b> accounts<br><b>${data.transactions.length}</b> entries<br><b>${data.goals.length}</b> goals</div><form id="restore-form"><div class="sheet-actions">${btn('','Cancel','close')}<button class="btn primary" type="submit">Restore backup</button></div></form>`);bindForm('#restore-form',async()=>{if(demo)state=C.clone(restoring);else{state=await S.restore(restoring);realState=state}messages=[];clearHelper();restoring=null})}catch(error){report(error)}});
