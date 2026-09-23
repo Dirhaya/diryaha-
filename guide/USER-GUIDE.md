@@ -1,3 +1,7 @@
+# Ghars 1.9.0
+
+For the current backup, tracking, shortcut, recurring and update flows, see [Version 1.9 guide](RELEASE-1.9.md). Encrypted backup files are now available; the passkey remains a screen lock and does not encrypt device records. Earlier instructions below describe their original release.
+
 # Using Dirhaya
 
 ## Start with the right balance

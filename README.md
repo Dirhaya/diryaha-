@@ -1,6 +1,8 @@
 # Ghars — غرس
 
 Formerly Dirhaya. Same hosted address and device database.
+
+**Current release: 1.9.0** — encrypted backups with explicit file verification, a cash/goal/investment breakdown, Start from today with retained history, custom quick categories and default payment, repeat-expense drafts, recurring-entry review, and running/update version status. See [release notes](guide/RELEASE-1.9.md). [Physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) are still pending.
 # Dirhaya · درهايا
 
 A beige/grey personal money app for iPhone Home Screen use. It tracks bank accounts, linked debit cards, cash, prepaid balances, savings goals, salary, and unexplained spending. Includes a local arithmetic assistant and device backups.
@@ -70,7 +72,7 @@ Activity → entry → **Split across months** moves a portion to its actual dat
 
 Debit cards share their linked bank balance and do not add extra money. Goal allocations reserve money in a named real account. Actual-balance checks label missing amounts as unexplained spending; explaining a portion later does not debit it again. Funds transferred between your accounts are not spending.
 
-The app uses AED integer fils, local IndexedDB, and cached app files. It has no bank connection, analytics, cloud AI, or account login. Records and backups are not separately encrypted. Keep backups in Files; deleting website data or the app can lose records.
+The app uses AED integer fils, local IndexedDB, and cached app files. It has no bank connection, analytics, cloud AI, or account login. Device records are not encrypted by Ghars. Version 1.9 offers encrypted backup files with a separate password; plain JSON remains an explicit option. Keep backups in Files; deleting website data or the app can lose records.
 
 [User guide](guide/USER-GUIDE.md) · [Verification and pending iPhone checks](guide/TESTING.md)
 
