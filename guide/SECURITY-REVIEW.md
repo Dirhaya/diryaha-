@@ -28,3 +28,7 @@ A dated report specifying commit/build and tested device/browser versions, threa
 
 - [MDN — SubtleCrypto.encrypt](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt): Web Crypto encryption and authenticated AES-GCM API behaviour.
 - [OWASP — Password Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html): password derivation work-factor guidance. PBKDF2-SHA-256 is used here for native offline Web Crypto compatibility; this choice is not a claim of FIPS certification or OWASP approval of the app.
+
+## 1.10 additions to review
+
+Review the bounded undo journal and recovery snapshots for retention of deleted values, imported patch validation, stale dependency checks, and atomic rollback. Review duplicate acknowledgements against concurrent writes and changes to the draft, and recurring linking against occurrence reuse. Confirm the financial-content digest cannot incorrectly reset backup reminders after intervening saves or a restore. Check that translation changes presentation only, preserves form option values and user-supplied strings, and cannot introduce HTML through translated text. No financial data is sent to a translation service.

@@ -1,3 +1,7 @@
+# Ghars 1.10.0
+
+For undo, duplicate warnings, recurring matching, favourites, family setup, backup reminders, Arabic and text size, see [the current guide](RELEASE-1.10.md). These features work offline and preserve existing records.
+
 # Ghars 1.9.0
 
 For the current backup, tracking, shortcut, recurring and update flows, see [Version 1.9 guide](RELEASE-1.9.md). Encrypted backup files are now available; the passkey remains a screen lock and does not encrypt device records. Earlier instructions below describe their original release.

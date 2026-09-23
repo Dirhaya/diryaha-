@@ -1,0 +1,155 @@
+{
+  "format": "dirhaya",
+  "version": 1,
+  "rev": 14,
+  "accounts": [
+    {
+      "id": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+      "name": "Everyday",
+      "type": "bank",
+      "opening": 45000,
+      "color": "sand",
+      "created": 1790159683581
+    },
+    {
+      "id": "f9f5552c-ac09-44c1-b7ca-85d0044fcf06",
+      "name": "Future fund",
+      "type": "savings",
+      "opening": 1200000,
+      "color": "sage",
+      "created": 1790159683581
+    },
+    {
+      "id": "b71939f6-4424-4604-a2e3-b74dd3ae4ee8",
+      "name": "Cash",
+      "type": "cash",
+      "opening": 35000,
+      "color": "slate",
+      "created": 1790159683582
+    }
+  ],
+  "cards": [
+    {
+      "id": "2f0fb69d-7258-4124-9b60-b9ee889afc46",
+      "created": 1790159683582,
+      "name": "Everyday debit",
+      "account": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+      "last4": "1234",
+      "color": "slate"
+    }
+  ],
+  "transactions": [
+    {
+      "card": null,
+      "id": "fcc74637-4bb7-4af2-9010-bea170d4a1e4",
+      "type": "income",
+      "amount": 800000,
+      "account": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+      "to": null,
+      "date": "2026-09-23",
+      "category": "Salary",
+      "note": "Sample salary",
+      "created": 1790159683582,
+      "beforeStart": true
+    },
+    {
+      "card": "2f0fb69d-7258-4124-9b60-b9ee889afc46",
+      "id": "c4beb891-e508-4994-a1f7-64fc42e4de67",
+      "type": "expense",
+      "amount": 2800,
+      "account": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+      "to": null,
+      "date": "2026-09-23",
+      "category": "Food & drink",
+      "note": "A good cup of coffee",
+      "created": 1790159683583,
+      "beforeStart": true
+    },
+    {
+      "card": null,
+      "id": "e06e5689-5109-4309-89eb-f6fdf9a78f6e",
+      "type": "expense",
+      "amount": 12000,
+      "account": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+      "to": null,
+      "date": "2026-09-23",
+      "category": "Transport",
+      "note": "Petrol",
+      "created": 1790159683583,
+      "beforeStart": true
+    }
+  ],
+  "goals": [
+    {
+      "id": "c82d44f5-5069-47fb-b207-ea560f5ac967",
+      "allocations": [
+        {
+          "id": "38d94f84-0c77-4132-a4b7-9c9faf88d1bd",
+          "account": "f9f5552c-ac09-44c1-b7ca-85d0044fcf06",
+          "amount": 800000,
+          "date": "2026-09-23",
+          "created": 1790159683582
+        }
+      ],
+      "created": 1790159683582,
+      "name": "A little more freedom",
+      "target": 1500000,
+      "deadline": "",
+      "icon": "shield",
+      "color": "sage",
+      "note": ""
+    },
+    {
+      "id": "c289c019-e1af-4acf-8996-ff3efdb7de55",
+      "allocations": [
+        {
+          "id": "e9a460af-b97c-4f89-abcd-aebabdaa7fcb",
+          "account": "f9f5552c-ac09-44c1-b7ca-85d0044fcf06",
+          "amount": 250000,
+          "date": "2026-09-23",
+          "created": 1790159683583
+        }
+      ],
+      "created": 1790159683583,
+      "name": "China trip",
+      "target": 1200000,
+      "deadline": "",
+      "icon": "plane",
+      "color": "sand",
+      "note": ""
+    }
+  ],
+  "settings": {
+    "name": "Synthetic family member",
+    "needsName": false,
+    "theme": "beige",
+    "hideAmounts": false,
+    "monthlyBudget": 0,
+    "lastBackup": null,
+    "quickCategories": [
+      "Laundry",
+      "Bills"
+    ],
+    "defaultPayment": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+    "trackingFrom": "2026-09-23",
+    "trackingStartedAt": 1790159683584
+  },
+  "created": 1790159683579,
+  "recurring": [
+    {
+      "id": "3311ccff-a0ec-4929-acdf-a3e0b26824b4",
+      "name": "Synthetic bill",
+      "kind": "expense",
+      "category": "Bills",
+      "account": "733a7ffe-981b-43d5-acd1-1c9bfaabc2b0",
+      "card": null,
+      "amount": 4321,
+      "frequency": "monthly",
+      "nextDate": "2026-08-23",
+      "anchorDay": 23,
+      "anchorMonth": 8,
+      "paused": false,
+      "handled": []
+    }
+  ]
+}

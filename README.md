@@ -2,7 +2,8 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.9.0** — encrypted backups with explicit file verification, a cash/goal/investment breakdown, Start from today with retained history, custom quick categories and default payment, repeat-expense drafts, recurring-entry review, and running/update version status. See [release notes](guide/RELEASE-1.9.md). [Physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) are still pending.
+**Current release: 1.10.0** — recent-change undo, possible duplicate warnings, linking recurring bills to existing payments, expense favourites, guided family setup, verified-backup reminders, Arabic/English interface and larger text. See [release notes and instructions](guide/RELEASE-1.10.md). Existing local records are preserved. 218 automated tests pass; [physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) remain pending.
+
 # Dirhaya · درهايا
 
 A beige/grey personal money app for iPhone Home Screen use. It tracks bank accounts, linked debit cards, cash, prepaid balances, savings goals, salary, and unexplained spending. Includes a local arithmetic assistant and device backups.

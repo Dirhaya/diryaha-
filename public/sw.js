@@ -1,7 +1,7 @@
 'use strict';
-const BUILD='dirhaya-v1-20260923-04';
+const BUILD='dirhaya-v1-20260923-05';
 const CACHE=BUILD+'-'+encodeURIComponent(self.registration.scope);
-const FILES=['./','index.html','styles.css','core.js','storage.js','security.js','reminders.js','backups.js','app.js','manifest.webmanifest','icons/icon.svg','icons/apple-touch-icon.png','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png'];
+const FILES=['./','index.html','styles.css','core.js','storage.js','security.js','reminders.js','backups.js','i18n.js','app.js','manifest.webmanifest','icons/icon.svg','icons/apple-touch-icon.png','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png'];
 const URLS=FILES.map(f=>new URL(f,self.registration.scope).href);
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(URLS.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const suffix='-'+encodeURIComponent(self.registration.scope);for(const name of await caches.keys())if(name.startsWith('dirhaya-v')&&name.endsWith(suffix)&&name!==CACHE)await caches.delete(name);await self.clients.claim()})()));

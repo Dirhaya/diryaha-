@@ -11,7 +11,7 @@ html=html.replace('<link rel="stylesheet" href="styles.css">',()=>'<style>'+read
 html=html.replace('<script src="core.js"></script>',()=>inline('window.DIRHAYA_PREVIEW=true;\n'+read('core.js')));
 const memory=`(()=>{const C=DirhayaCore;let state=C.blank(),previous=null;window.DirhayaStorage={async init(){return C.clone(state)},async get(){return C.clone(state)},async mutate(action){state=C.apply(state,action);return C.clone(state)},async restore(data){C.validate(data);previous=C.clone(state);state=C.clone(data);return C.clone(state)},async recover(){if(!previous)throw new Error('No preview snapshot.');const swap=state;state=previous;previous=swap;return C.clone(state)}}})();`;
 html=html.replace('<script src="storage.js"></script>',()=>inline(memory));
-for(const name of ['security.js','reminders.js','backups.js','app.js'])html=html.replace(`<script src="${name}"></script>`,()=>inline(read(name)));
+for(const name of ['security.js','reminders.js','backups.js','i18n.js','app.js'])html=html.replace(`<script src="${name}"></script>`,()=>inline(read(name)));
 
 html=html.replace('<title>Dirhaya · Your money, with a direction</title>','<title>Dirhaya · Interactive preview · changes are not saved</title>');
 const destination=process.argv[2]?path.resolve(process.argv[2]):path.join(__dirname,'preview.html');
