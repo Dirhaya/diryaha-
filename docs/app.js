@@ -2,7 +2,7 @@
 (() => {
 const Security=DirhayaSecurity,Reminders=DirhayaReminders,B=DirhayaBackups;
 let appLocked=false,authBusy=false,reminderDraft=[];
-const APP_VERSION='1.9.0',APP_BUILD='dirhaya-v1-20260923-03';
+const APP_VERSION='1.9.0',APP_BUILD='dirhaya-v1-20260923-04';
 let preparedBackup=null,filePurpose='restore',lastRenderedDay='';
 let availableBuild="",lastInteraction=Date.now(),pendingWrites=0,lastAutoCheck=0,autoChecking=false,reloading=false;
 let updateAvailable=false;const watchedUpdates=new WeakSet();

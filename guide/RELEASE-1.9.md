@@ -1,6 +1,6 @@
 # Ghars 1.9.0 — everyday tracking and verified backups
 
-Build: `dirhaya-v1-20260923-03`. Published files are generated from `public/` into `docs/`. Existing database name, object store, database version, data format, app URL, and passkey keys are unchanged. No reset or financial migration runs during an update.
+Build: `dirhaya-v1-20260923-04`. Published files are generated from `public/` into `docs/`. Existing database name, object store, database version, data format, app URL, and passkey keys are unchanged. No reset or financial migration runs during an update.
 
 ## Backup and restore
 

@@ -1,6 +1,6 @@
 # Physical iPhone acceptance — pending
 
-Status: **Not performed.** Target release 1.9.0, build 20260923-03. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
+Status: **Not performed.** Target release 1.9.0, build 20260923-04. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
 
 | Check | Procedure | Expected result | Status |
 |---|---|---|---|

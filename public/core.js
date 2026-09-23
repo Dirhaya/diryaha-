@@ -150,7 +150,7 @@ function apply(state,action){
    s.recurring=s.recurring||[];const old=s.recurring.find(r=>r.id===action.id);if(action.id&&!old)fail('This recurring entry no longer exists.');
    if(old&&action.expectedNext!==old.nextDate)fail('This schedule changed. Reopen it before editing.');
    const item={id:old?.id||uid(),name:cleanName(action.name,'Recurring name'),kind:action.kind,category:action.category,account:action.account,card:action.kind==='expense'?(action.card||null):null,amount:cents(action.amount,{zero:false}),frequency:action.frequency,nextDate:action.nextDate,anchorDay:Number(action.nextDate?.slice(8,10)),anchorMonth:Number(action.nextDate?.slice(5,7)),paused:!!action.paused,handled:old?.handled||[]};
-   if(old&&old.nextDate===item.nextDate){item.anchorDay=old.anchorDay;item.anchorMonth=old.anchorMonth}
+   if(old&&old.frequency===item.frequency&&old.nextDate===item.nextDate){item.anchorDay=old.anchorDay;item.anchorMonth=old.anchorMonth}
    if(item.handled.includes(item.nextDate))fail('This date was already recorded or skipped. Choose the next unhandled date.');
    if(old)s.recurring[s.recurring.indexOf(old)]=item;else s.recurring.push(item);break;
   }
