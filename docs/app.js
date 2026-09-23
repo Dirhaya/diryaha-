@@ -2,7 +2,7 @@
 (() => {
 const Security=DirhayaSecurity,Reminders=DirhayaReminders;
 let appLocked=false,authBusy=false,reminderDraft=[];
-const APP_BUILD='dirhaya-v1-20260922-13';
+const APP_BUILD='dirhaya-v1-20260923-01';
 let availableBuild="",lastInteraction=Date.now(),pendingWrites=0,lastAutoCheck=0,autoChecking=false,reloading=false;
 let updateAvailable=false;const watchedUpdates=new WeakSet();
 const C=DirhayaCore,S=DirhayaStorage,$=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];

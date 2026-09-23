@@ -1,2 +1,4 @@
-const {execFileSync}=require('node:child_process'),path=require('node:path');
+const {execFileSync}=require('node:child_process'),path=require('node:path'),fs=require('node:fs');
 execFileSync(process.env.CODEX_PRIMARY_RUNTIME_PYTHON||'python3',[path.join(__dirname,'build-icons.py')],{stdio:'inherit'});
+const {createCanvas,loadImage}=require((process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES||path.join(__dirname,'node_modules'))+'/@napi-rs/canvas');
+(async()=>{const root=path.join(__dirname,'public/icons'),image=await loadImage(fs.readFileSync(path.join(root,'icon.svg')));for(const [name,size] of [['icon-192.png',192],['icon-512.png',512],['apple-touch-icon.png',180],['maskable-512.png',512]]){const canvas=createCanvas(size,size),ctx=canvas.getContext('2d');ctx.fillStyle='#f4f0e9';ctx.fillRect(0,0,size,size);const pad=name.startsWith('maskable')?size*.08:0;ctx.drawImage(image,pad,pad,size-pad*2,size-pad*2);fs.writeFileSync(path.join(root,name),canvas.toBuffer('image/png'))}})();
