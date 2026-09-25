@@ -124,3 +124,8 @@ No browser automation or physical iPhone was available. RTL/large text, VoiceOve
 ## Version 1.10.1: account deletion
 
 227 automated tests pass. Added account/card deletion with explicit confirmation, default-payment cleanup and exact undo; blockers for recorded entries, transfers, balance corrections, goals, holdings, favourites and schedules; stale card/opening-balance review rejection; preservation through failed IndexedDB writes and reopening; and classification of validation errors versus genuine storage failures. Physical iPhone/Safari testing remains pending.
+
+
+## Version 1.11.0: inactive accounts and investment sources
+
+238 automated tests pass. Closing preserves separate investments, exact transfer IDs/source references, holdings, totals and spending classification. New coverage checks hidden-balance prevention, active selectors versus historical filters, paused schedules and cleared defaults, retained favourites, reopen and exact undo, backup roundtrip, closed-account Start from today, and failed-write rollback/reopening. Physical iPhone/Safari checks remain pending.

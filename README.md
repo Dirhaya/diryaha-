@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.10.1** — [account deletion fix](guide/RELEASE-1.10.1.md): accurate blocker messages and explicit removal of unused linked cards. Includes recent-change undo, possible duplicate warnings, linking recurring bills to existing payments, expense favourites, guided family setup, verified-backup reminders, Arabic/English interface and larger text. See [release notes and instructions](guide/RELEASE-1.10.md). Existing local records are preserved. 227 automated tests pass; [physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) remain pending.
+**Current release: 1.11.0** — [remove inactive accounts while preserving investment funding history](guide/RELEASE-1.11.md). Separate investments retain their values and source transfers; closed accounts leave active lists and remain available in history. Includes the previous family, backup and Arabic features. 238 automated tests pass; [physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) remain pending.
 
 # Dirhaya · درهايا
 

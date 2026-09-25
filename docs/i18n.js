@@ -831,6 +831,38 @@ This account has linked debit cards. Confirm removal of its unused cards too.	ل
 Linked cards changed. Reopen Delete unused account and review them again.	تغيرت البطاقات المرتبطة. أعد فتح حذف الحساب غير المستخدم وراجعها مجدداً.
 The account balance changed. Reopen Delete unused account and review it again.	تغير رصيد الحساب. أعد فتح حذف الحساب غير المستخدم وراجعه مجدداً.
 `);
+add(`
+Closed account	حساب مغلق في غرس
+Closed accounts	الحسابات المغلقة
+Remove from active accounts	إزالة من الحسابات النشطة
+Remove from active accounts?	إزالة من الحسابات النشطة؟
+Reopen account	إعادة فتح الحساب
+Reopen this account?	إعادة فتح هذا الحساب؟
+It returns to active accounts. Recurring schedules stay paused until you review them.	سيعود إلى الحسابات النشطة. تبقى الجداول المتكررة متوقفة حتى تراجعها.
+Old records stay available. Investments keep their original funding sources.	تبقى السجلات السابقة متاحة وتحتفظ الاستثمارات بمصادر تمويلها الأصلية.
+No closed accounts.	لا توجد حسابات مغلقة.
+This account is hidden from active accounts. Its past transfers still show where investment money came from.	هذا الحساب مخفي من الحسابات النشطة. تبين تحويلاته السابقة مصدر الأموال المستثمرة.
+Settle this account first	سوِّ رصيد هذا الحساب أولاً
+Closing an account must not make money disappear. Move its remaining money to the account that actually holds it. If the same money is already counted in an investment account, correct the duplicate balance instead of adding the investment again.	يجب ألا يؤدي إغلاق الحساب إلى اختفاء أموال. انقل رصيده المتبقي إلى الحساب الذي يحتوي عليه فعلياً. إذا كانت الأموال نفسها محسوبة بالفعل في حساب استثماري، صحح الرصيد المكرر بدلاً من إضافة الاستثمار مجدداً.
+Remaining balance:	الرصيد المتبقي:
+Reserved for goals:	مخصص للأهداف:
+This account contains investment holdings. Keep it active to retain those investments.	يحتوي هذا الحساب على أصول استثمارية. أبقه نشطاً للاحتفاظ باستثماراته.
+Back to account	العودة إلى الحساب
+Your separate investment accounts and their values stay unchanged. Past transfers keep this account as their source. No income, spending or unexplained money is created.	تبقى حسابات استثماراتك المنفصلة وقيمها دون تغيير. تحتفظ التحويلات السابقة بهذا الحساب كمصدر لها. لا يُضاف دخل أو مصروف أو مبلغ غير مفسر.
+This account and its linked cards will leave the active lists. Its recurring schedules will be paused and its favourites hidden. This closes it only inside Ghars, not at your bank. You can reopen it from Closed accounts, or use Undo recent changes.	سيخرج هذا الحساب وبطاقاته المرتبطة من القوائم النشطة. تتوقف جداوله المتكررة وتُخفى مفضلاته. يُغلق داخل غرس فقط وليس لدى البنك. يمكنك إعادة فتحه من الحسابات المغلقة أو التراجع عن التغييرات الأخيرة.
+This account is closed in Ghars. Reopen it before recording or changing money.	هذا الحساب مغلق في غرس. أعد فتحه قبل تسجيل الأموال أو تعديلها.
+This account is already closed.	هذا الحساب مغلق بالفعل.
+Move or correct the remaining balance before closing this account.	انقل الرصيد المتبقي أو صححه قبل إغلاق الحساب.
+Move goal savings and keep investment holdings in an active account before closing.	انقل مدخرات الأهداف واحتفظ بالأصول الاستثمارية في حساب نشط قبل الإغلاق.
+Closed accounts must keep a zero balance and no holdings or goal savings. Reopen the account before changing its history.	يجب أن تبقى الحسابات المغلقة برصيد صفري ودون أصول استثمارية أو مدخرات أهداف. أعد فتح الحساب قبل تعديل سجله.
+Recurring entries for closed accounts must stay paused.	يجب أن تبقى الجداول المتكررة للحسابات المغلقة متوقفة.
+Choose an active default payment account.	اختر حساب دفع افتراضياً نشطاً.
+Account removed from active list	أزيل الحساب من القائمة النشطة
+Account reopened	أعيد فتح الحساب
+`);
+add(`
+Closed account · choose another payment account to use this favourite.	الحساب مغلق · اختر حساب دفع آخر لاستخدام هذه المفضلة.
+`);
 const patterns=[
  [/^“(.+)” would have a negative balance\. Check the opening balance or record missing income first\.$/,m=>'سيصبح رصيد «'+m[1]+'» سالباً. راجع الرصيد الافتتاحي أو سجل الدخل الناقص أولاً.'],
  [/^Some money in “(.+)” is reserved for goals\. Release enough goal money first\.$/,m=>'بعض أموال «'+m[1]+'» مخصصة للأهداف. حرر مبلغاً كافياً منها أولاً.'],
