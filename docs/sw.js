@@ -1,5 +1,5 @@
 'use strict';
-const BUILD='dirhaya-v1-20260923-05';
+const BUILD='dirhaya-v1-20260925-01';
 const CACHE=BUILD+'-'+encodeURIComponent(self.registration.scope);
 const FILES=['./','index.html','styles.css','core.js','storage.js','security.js','reminders.js','backups.js','i18n.js','app.js','manifest.webmanifest','icons/icon.svg','icons/apple-touch-icon.png','icons/icon-192.png','icons/icon-512.png','icons/maskable-512.png'];
 const URLS=FILES.map(f=>new URL(f,self.registration.scope).href);

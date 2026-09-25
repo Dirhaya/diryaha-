@@ -1,10 +1,10 @@
 # Physical iPhone acceptance — pending
 
-Status: **Not performed.** Target release 1.10.0, build 20260923-05. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
+Status: **Not performed.** Target release 1.10.1, build 20260925-01. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
 
 | Check | Procedure | Expected result | Status |
 |---|---|---|---|
-| Existing-record upgrade | Seed an installed 1.8 or 1.9 copy with bank/cash accounts, linked card, history from two months, goals and holdings. Record counts/totals and keep a verified backup. Update without reinstalling or clearing data. | 1.10.0 appears; balances, account/card IDs, entries, allocations, holdings, names and appearance remain identical. | Pending |
+| Existing-record upgrade | Seed an installed 1.8 or 1.9 copy with bank/cash accounts, linked card, history from two months, goals and holdings. Record counts/totals and keep a verified backup. Update without reinstalling or clearing data. | 1.10.1 appears; balances, account/card IDs, entries, allocations, holdings, names and appearance remain identical. | Pending |
 | Idle update and draft protection | With an older build running, open an expense draft and enter a calculation. Download the update, save the draft, clear/close the helper and return to Overview. | No reload interrupts the draft. Running/downloaded build status is clear. After 30 idle seconds the new build loads once. | Pending |
 | Offline upgrade restart | After the new release is Offline ready, force-close and reopen in Airplane Mode. | App, new features and existing records work; a new expense persists after restart. | Pending |
 | Encrypted export on iPhone | Prepare a password-protected backup. Tap Share / Save to Files, save in a known On My iPhone folder. Repeat with a cancelled share. | A uniquely named JSON file is present; successful handoff says Export requested, never verified. Cancellation does not record a new export. | Pending |
@@ -26,5 +26,7 @@ Status: **Not performed.** Target release 1.10.0, build 20260923-05. No physical
 | Family setup | In a separate fresh installation select Arabic/Large, enter current balances, stop and resume, choose default payment, save and verify a first backup. Repeat with Do this later. | Setup resumes without duplicate accounts/income; correct verified status; deferral leaves a reminder. Existing users are not forced to restart. | Pending |
 | Backup reminder | Verify current records, make the configured number of changes, snooze; try selecting an old backup and then a matching new one. | Timing/count settings work; snooze lasts one day; old verification does not reset the baseline; matching verification clears the reminder. | Pending |
 | Arabic and reading size | Switch en/ar and all sizes in every view, with keyboard/helper, privacy, night mode and VoiceOver. Save a category in Arabic then reopen in English. | RTL labels and focus/buttons remain usable; original account names, notes and category values survive; no clipped required actions. | Pending |
+
+| Account deletion | Create an unused account and linked card. Cancel once, then confirm removal with the checkbox. Undo it. Try deleting an account containing history or a schedule. | No deletion without confirmation; account/card/default restore together; linked records are explained without a false storage warning. | Pending |
 
 Do not delete an installed personal-data copy to refresh its icon or update its code. Do not attach personal backups to a public repository, issue, or review checklist. Record only synthetic fixtures and pass/fail outcomes.

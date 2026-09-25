@@ -119,3 +119,8 @@ No real iPhone, Safari or visual-browser test is claimed. No independent securit
 218 automated tests pass. New cases cover undo across add/edit/delete/split and recurring record/match, dependencies and stale actions, bounded journal history, atomic storage failures and reopening, similarity warnings with concurrent saves and changed-draft acknowledgement, favourites including encrypted roundtrips, guided setup with no false income, verified-content reminder thresholds and snooze, Arabic label reversibility and stable underlying option/input values, and previous-version synthetic 1.9 records reopened under 1.10 without financial or preference changes. The offline cache now includes i18n.js.
 
 No browser automation or physical iPhone was available. RTL/large text, VoiceOver, real file sharing and update lifecycle need the acceptance checklist. No independent security review is claimed.
+
+
+## Version 1.10.1: account deletion
+
+227 automated tests pass. Added account/card deletion with explicit confirmation, default-payment cleanup and exact undo; blockers for recorded entries, transfers, balance corrections, goals, holdings, favourites and schedules; stale card/opening-balance review rejection; preservation through failed IndexedDB writes and reopening; and classification of validation errors versus genuine storage failures. Physical iPhone/Safari testing remains pending.

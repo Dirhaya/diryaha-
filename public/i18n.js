@@ -813,6 +813,24 @@ Add an account to continue.	أضف حساباً للمتابعة.
 Confirm the existing payment before linking.	أكد الحركة المسجلة قبل ربطها.
 The existing payment was changed. Choose it again before linking.	تغيرت الحركة المسجلة. اخترها مجدداً قبل الربط.
 `);
+add(`
+Account is still linked	لا يزال الحساب مرتبطاً بسجلات
+This account is still used by the records below. Nothing has been deleted. A zero balance does not mean an account has no history.	لا تزال السجلات أدناه تستخدم هذا الحساب. لم يُحذف شيء. الرصيد الصفري لا يعني أن الحساب بلا سجل سابق.
+Recorded entries, including transfers and balance corrections, need this account to preserve your history.	تحتاج الحركات المسجلة، بما فيها التحويلات وتصحيحات الرصيد، إلى هذا الحساب للحفاظ على سجلك.
+Goals using this account	أهداف تستخدم هذا الحساب
+Review investment holdings	مراجعة الأصول الاستثمارية
+This account has no recorded entries, goal savings, holdings, favourites or recurring schedules.	ليس لهذا الحساب حركات مسجلة أو مدخرات أهداف أو أصول استثمارية أو مفضلات أو جداول متكررة.
+Balance removed from your total:	الرصيد الذي سيُحذف من إجمالي أموالك:
+You can restore this deletion from Undo recent changes.	يمكنك استرجاع الحساب من التراجع عن التغييرات الأخيرة.
+Unused linked debit cards:	بطاقات الخصم المرتبطة غير المستخدمة:
+Also delete these unused linked cards.	احذف هذه البطاقات المرتبطة غير المستخدمة أيضاً.
+Confirm removal of the unused linked cards first.	أكد حذف البطاقات المرتبطة غير المستخدمة أولاً.
+This account has recorded entries, including transfers or balance corrections. Keep it to preserve your history.	لهذا الحساب حركات مسجلة تشمل تحويلات أو تصحيحات رصيد. احتفظ به للحفاظ على سجلك.
+This account holds goal savings. Move or release them before deleting it.	يحتوي هذا الحساب على مدخرات أهداف. انقلها أو حررها قبل حذفه.
+This account has linked debit cards. Confirm removal of its unused cards too.	لهذا الحساب بطاقات خصم مرتبطة. أكد حذف بطاقاته غير المستخدمة أيضاً.
+Linked cards changed. Reopen Delete unused account and review them again.	تغيرت البطاقات المرتبطة. أعد فتح حذف الحساب غير المستخدم وراجعها مجدداً.
+The account balance changed. Reopen Delete unused account and review it again.	تغير رصيد الحساب. أعد فتح حذف الحساب غير المستخدم وراجعه مجدداً.
+`);
 const patterns=[
  [/^“(.+)” would have a negative balance\. Check the opening balance or record missing income first\.$/,m=>'سيصبح رصيد «'+m[1]+'» سالباً. راجع الرصيد الافتتاحي أو سجل الدخل الناقص أولاً.'],
  [/^Some money in “(.+)” is reserved for goals\. Release enough goal money first\.$/,m=>'بعض أموال «'+m[1]+'» مخصصة للأهداف. حرر مبلغاً كافياً منها أولاً.'],
