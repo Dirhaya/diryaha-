@@ -766,7 +766,7 @@ If you load money onto this card separately, add it as a	إذا كنت تشحن 
 account instead.	حساب مستقل.
 After resetting, set each account’s starting balance to the money you actually have. A starting balance is not new income.	بعد إعادة الضبط، أدخل ما تملكه فعلياً كرصيد افتتاحي لكل حساب. الرصيد الافتتاحي ليس دخلاً جديداً.
 account names and types, linked debit cards, goal names and targets, and your appearance preferences.	أسماء الحسابات وأنواعها، والبطاقات المرتبطة، وأسماء الأهداف ومبالغها المستهدفة، وتفضيلات المظهر.
-all transactions, unexplained amounts, account balances, balance checks, saved-goal amounts, investment holdings, the spending limit, recurring schedules, expense favourites, undo history, and the previous restore and tracking snapshots.	جميع الحركات والمبالغ غير المفسرة والأرصدة ومراجعاتها ومخصصات الأهداف والأصول الاستثمارية وحد الإنفاق والجداول المتكررة والمفضلات وسجل التراجع واللقطات السابقة للاستعادة والمتابعة.
+all transactions, unexplained amounts, account balances, balance checks, saved-goal amounts, investment holdings, investment sale history, the spending limit, recurring schedules, expense favourites, undo history, and the previous restore and tracking snapshots.	جميع الحركات والمبالغ غير المفسرة والأرصدة ومراجعاتها ومخصصات الأهداف والأصول الاستثمارية وسجل مبيعاتها وحد الإنفاق والجداول المتكررة والمفضلات وسجل التراجع واللقطات السابقة للاستعادة والمتابعة.
 Choose a Ghars .json backup or an older .dirhaya file. All file types are selectable so older iPhone backups are not greyed out. Encrypted backups will ask for their password.	اختر نسخة غرس بصيغة .json أو نسخة أقدم بصيغة .dirhaya. يمكن اختيار جميع أنواع الملفات لتسهيل فتح النسخ القديمة على الآيفون. ستطلب النسخة المشفرة كلمة مرورها.
 Choose Save to Files in the share sheet, then a folder you recognise, such as On My iPhone → Ghars Backups. Tap Save.	اختر «حفظ في الملفات» من قائمة المشاركة ثم مجلداً تعرفه، مثل «على الـ iPhone الخاص بي ← نسخ غرس». اضغط حفظ.
 Find the file in Files → Browse, in the folder where you saved it. Search for “Ghars-” or “Dirhaya”. A CSV export cannot restore the app.	ابحث في «الملفات ← تصفح» داخل المجلد الذي اخترته. يمكنك البحث عن «Ghars-» أو «Dirhaya». لا يمكن استعادة التطبيق من ملف CSV.
@@ -862,6 +862,39 @@ Account reopened	أعيد فتح الحساب
 `);
 add(`
 Closed account · choose another payment account to use this favourite.	الحساب مغلق · اختر حساب دفع آخر لاستخدام هذه المفضلة.
+`);
+add(`
+Sell part of this holding	بيع جزء من هذا الاستثمار
+Shares currently held	عدد الأسهم الحالي
+Shares sold	الأسهم المباعة
+Enter the number of shares, not the AED amount. Fractional shares are supported.	أدخل عدد الأسهم وليس المبلغ بالدرهم. تُقبل كسور الأسهم.
+Enter the amount received after fees. Do not deduct the fees again.	أدخل المبلغ المستلم بعد الرسوم. لا تخصم الرسوم مرة أخرى.
+Sale date	تاريخ البيع
+Shares remaining	الأسهم المتبقية
+Remaining holding value · estimated	قيمة الاستثمار المتبقي · تقديرية
+Cash added inside portfolio	النقد المضاف داخل المحفظة
+Change in total wealth	التغير في إجمالي الأموال
+No salary or spending is recorded. Transfer the cash separately when it reaches your bank.	لا يُسجل راتب أو مصروف. سجل تحويل النقد بشكل منفصل عندما يصل إلى بنكك.
+Enter shares sold and net proceeds to review the result.	أدخل الأسهم المباعة وصافي المبلغ المستلم لمراجعة النتيجة.
+Remaining value and original cost are reduced proportionally using your saved holding. This is an estimate, not a live price or tax calculation. Update the remaining valuation afterward if needed.	تُخفض القيمة والتكلفة الأصلية بنسبة الأسهم المباعة وفق بياناتك المحفوظة. هذا تقدير وليس سعراً مباشراً أو حساباً ضريبياً. حدّث قيمة الأسهم المتبقية بعد ذلك إذا لزم الأمر.
+I have not recorded this sale yet.	لم أسجل عملية البيع هذه من قبل.
+Record partial sale	تسجيل بيع جزئي
+Confirm that this sale has not already been recorded.	أكد أنك لم تسجل عملية البيع هذه مسبقاً.
+Partial sale recorded	تم تسجيل البيع الجزئي
+Partial holding sale recorded	تم تسجيل بيع جزء من الاستثمار
+Cash now available from this sale:	النقد المتاح الآن من هذا البيع:
+Your remaining shares are still recorded. If the proceeds reached your bank, record the transfer below. If they are still with your broker, leave them in this portfolio.	تبقى أسهمك المتبقية مسجلة. إذا وصل المبلغ إلى البنك، سجل التحويل أدناه. إذا بقي لدى الوسيط، اتركه في هذه المحفظة.
+Record transfer to bank	تسجيل تحويل إلى البنك
+Partial-sale history	سجل المبيعات الجزئية
+Latest 20 partial sales. Proceeds are already included in portfolio cash, not extra income.	آخر 20 عملية بيع جزئي. المبالغ المستلمة محسوبة بالفعل ضمن نقد المحفظة وليست دخلاً إضافياً.
+Shares remaining after this sale	الأسهم المتبقية بعد هذا البيع
+No partial sales recorded yet.	لم تُسجل مبيعات جزئية بعد.
+Add your receiving bank account before recording this transfer.	أضف الحساب البنكي المستلم قبل تسجيل التحويل.
+Enter fewer shares than you hold. To sell everything, use Sell all shares.	أدخل عدداً أقل من أسهمك الحالية. لبيعها بالكامل، اختر بيع جميع الأسهم.
+Your records changed. Reopen the partial sale and review it again.	تغيرت سجلاتك. أعد فتح البيع الجزئي وراجعه مجدداً.
+This account has investment sale history. Keep it or remove it from active accounts.	لهذا الحساب سجل مبيعات استثمارية. احتفظ به أو أزله من الحسابات النشطة.
+e.g. 200	مثال: 200
+e.g. 500.00	مثال: 500.00
 `);
 const patterns=[
  [/^“(.+)” would have a negative balance\. Check the opening balance or record missing income first\.$/,m=>'سيصبح رصيد «'+m[1]+'» سالباً. راجع الرصيد الافتتاحي أو سجل الدخل الناقص أولاً.'],

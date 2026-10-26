@@ -1,4 +1,8 @@
-# Ghars 1.10.0
+# Ghars 1.12.0
+
+For selling part of a stock holding and moving the proceeds into a bank account, see [Partial stock sales](RELEASE-1.12.md). For removing old accounts while preserving investment funding history, see [Closed accounts](RELEASE-1.11.md).
+
+## Earlier features
 
 For undo, duplicate warnings, recurring matching, favourites, family setup, backup reminders, Arabic and text size, see [the current guide](RELEASE-1.10.md). These features work offline and preserve existing records.
 

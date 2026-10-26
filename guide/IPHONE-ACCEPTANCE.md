@@ -1,9 +1,10 @@
 # Physical iPhone acceptance — pending
 
-Status: **Not performed.** Target release 1.11.0, build 20260925-02. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
+Status: **Not performed.** Target release 1.12.0, build 20261026-01. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
 
 | Check | Procedure | Expected result | Status |
 |---|---|---|---|
+| Partial stock sale | Sell part of a synthetic holding at equal value, gain and loss; use fractional shares. Review in Arabic/large text with the keyboard open. Confirm a separate bank transfer, inspect sale history, undo both, and export/restore. Also try duplicate/stale submissions and cancelling. | Remaining shares and cost/value correct; proceeds appear once as portfolio cash; bank changes only after transfer; no salary/spending; cancelling preserves records; undo and backup preserve the audit. | Pending |
 | Existing-record upgrade | Seed an installed 1.8 or 1.9 copy with bank/cash accounts, linked card, history from two months, goals and holdings. Record counts/totals and keep a verified backup. Update without reinstalling or clearing data. | 1.11.0 appears; balances, account/card IDs, entries, allocations, holdings, names and appearance remain identical. | Pending |
 | Idle update and draft protection | With an older build running, open an expense draft and enter a calculation. Download the update, save the draft, clear/close the helper and return to Overview. | No reload interrupts the draft. Running/downloaded build status is clear. After 30 idle seconds the new build loads once. | Pending |
 | Offline upgrade restart | After the new release is Offline ready, force-close and reopen in Airplane Mode. | App, new features and existing records work; a new expense persists after restart. | Pending |

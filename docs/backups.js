@@ -33,7 +33,7 @@ async function create(state,{password=null,demo=false}={}){
  return {text,record:{at,filename,revision:state.rev,digest:await digest(text),backupId,encrypted:password!==null}};
 }
 function canonical(value){if(Array.isArray(value))return '['+value.map(canonical).join(',')+']';if(value&&typeof value==='object')return '{'+Object.keys(value).sort().map(k=>JSON.stringify(k)+':'+canonical(value[k])).join(',')+'}';return JSON.stringify(value)}
-async function contentDigest(state){return digest(canonical({accounts:state.accounts,cards:state.cards,transactions:state.transactions,goals:state.goals,recurring:state.recurring||[],favourites:state.favourites||[],trackingFrom:state.settings.trackingFrom||null}))}
+async function contentDigest(state){return digest(canonical({accounts:state.accounts,cards:state.cards,transactions:state.transactions,goals:state.goals,recurring:state.recurring||[],favourites:state.favourites||[],investmentSales:state.investmentSales||[],trackingFrom:state.settings.trackingFrom||null}))}
 async function inspect(text,password,filename){const data=await decode(text,password);return {data,record:{at:Date.now(),filename:String(filename||'Backup.json').slice(0,240),digest:await digest(text),revision:data.rev,backupId:data.backupId||null,exportedAt:data.exportedAt||null,encrypted:encrypted(parse(text)),contentDigest:await contentDigest(data)}}}
 return {MAX_BYTES,ITERATIONS,contentDigest,parse,encrypted,encode,decode,create,inspect,digest,passwordOK};
 });

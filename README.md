@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.11.0** — [remove inactive accounts while preserving investment funding history](guide/RELEASE-1.11.md). Separate investments retain their values and source transfers; closed accounts leave active lists and remain available in history. Includes the previous family, backup and Arabic features. 238 automated tests pass; [physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) remain pending.
+**Current release: 1.12.0** — [partial stock sales](guide/RELEASE-1.12.md): retain remaining shares, record net proceeds as portfolio cash, then confirm a separate bank transfer. Includes sale history, undo and the previous closed-account, family, backup and Arabic features. 252 automated tests pass; [physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) remain pending.
 
 # Dirhaya · درهايا
 
@@ -29,7 +29,7 @@ A ZIP downloaded in Files is source code, not an iPhone installer. The optional 
 
 **Accounts → Investments → Add portfolio** groups several companies or funds in one account. Each holding records shares (up to six decimals), total original cost and manually entered current value. Holding value is a breakdown of the portfolio balance, never an additional copy of that balance.
 
-Add existing shares already included in the portfolio, move funding from another recorded account, or explicitly add an existing asset not yet counted anywhere. Valuation changes adjust total assets without becoming spending or salary. Full sales convert holding value into cash within the portfolio. Partial sales and live prices are not supported. Existing account data is preserved.
+Add existing shares already included in the portfolio, move funding from another recorded account, or explicitly add an existing asset not yet counted anywhere. Valuation changes adjust total assets without becoming spending or salary. Full sales convert holding value into cash within the portfolio. Partial sales are supported from version 1.12. Live prices are not supported. Existing account data is preserved.
 
 ## Version 1.5: quick expense buttons
 
