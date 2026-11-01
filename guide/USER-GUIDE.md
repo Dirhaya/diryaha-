@@ -1,4 +1,4 @@
-# Ghars 1.12.0
+# Ghars 1.13.0
 
 For selling part of a stock holding and moving the proceeds into a bank account, see [Partial stock sales](RELEASE-1.12.md). For removing old accounts while preserving investment funding history, see [Closed accounts](RELEASE-1.11.md).
 

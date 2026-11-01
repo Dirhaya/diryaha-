@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.12.0** — [partial stock sales](guide/RELEASE-1.12.md): retain remaining shares, record net proceeds as portfolio cash, then confirm a separate bank transfer. Includes sale history, undo and the previous closed-account, family, backup and Arabic features. 252 automated tests pass; [physical iPhone acceptance](guide/IPHONE-ACCEPTANCE.md) and [independent security review](guide/SECURITY-REVIEW.md) remain pending.
+**Current release: 1.13.0** — a compact overview with expandable money breakdowns, plus an optional glossy glass theme. Existing records and backups remain compatible. Automated tests and physical iPhone acceptance status are recorded in [release notes](guide/RELEASE-1.13.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
 
 # Dirhaya · درهايا
 
