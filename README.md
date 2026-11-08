@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.14.0** — week-by-week spending and income overviews, category highlights, and a weekly spending limit, alongside the compact overview and glossy glass theme. Existing records and backups remain compatible. Automated tests and physical iPhone acceptance status are recorded in [release notes](guide/RELEASE-1.14.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
+**Current release: 1.14.1** — quick expense and Add entry appear first on Overview; backup, tracking and recurring bills now share compact controls at the bottom. Week-by-week summaries and spending limits remain available. Existing records and backups remain compatible. See [release notes](guide/RELEASE-1.14.1.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
 
 # Dirhaya · درهايا
 

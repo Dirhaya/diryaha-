@@ -913,6 +913,18 @@ Save weekly limit	حفظ الحد الأسبوعي
 Set one from Weekly overview on the Overview screen.	حدد الحد من ملخص الأسبوع في شاشة النظرة العامة.
 Compared with your recorded expenses for a Monday–Sunday week. Transfers and investment contributions are excluded.	تتم المقارنة مع المصروفات المسجلة من الاثنين إلى الأحد، ولا تشمل التحويلات أو مساهمات الاستثمار.
 Enter 0 to turn the limit off. It does not change your balances.	أدخل 0 لإيقاف الحد. لن تتغير أرصدتك.
+Backup, tracking and recurring tools	أدوات النسخ الاحتياطي والمتابعة والتكرار
+Recurring bills and salary	الفواتير والراتب المتكرران
+Recurring bills	الفواتير المتكررة
+Bills & salary	الفواتير والراتب
+Backup	نسخة احتياطية
+Backup due	حان النسخ الاحتياطي
+Save a copy	احفظ نسخة
+Tracking	المتابعة
+From	منذ
+Start today	ابدأ اليوم
+No verified backup yet	لا توجد نسخة احتياطية مؤكدة بعد
+New changes need a backup	التغييرات الجديدة تحتاج إلى نسخة احتياطية
 `);
 const patterns=[
  [/^“(.+)” would have a negative balance\. Check the opening balance or record missing income first\.$/,m=>'سيصبح رصيد «'+m[1]+'» سالباً. راجع الرصيد الافتتاحي أو سجل الدخل الناقص أولاً.'],
