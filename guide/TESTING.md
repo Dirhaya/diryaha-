@@ -129,3 +129,8 @@ No browser automation or physical iPhone was available. RTL/large text, VoiceOve
 ## Version 1.11.0: inactive accounts and investment sources
 
 238 automated tests pass. Closing preserves separate investments, exact transfer IDs/source references, holdings, totals and spending classification. New coverage checks hidden-balance prevention, active selectors versus historical filters, paused schedules and cleared defaults, retained favourites, reopen and exact undo, backup roundtrip, closed-account Start from today, and failed-write rollback/reopening. Physical iPhone/Safari checks remain pending.
+
+
+## Version 1.14.0: weekly overviews and spending limits
+
+257 automated tests pass. New checks cover Monday–Sunday boundaries, date-range browsing, category totals, transfer/correction exclusions, tracking compatibility, weekly-limit validation and reset, offline assistant answers, and unchanged account balances when changing a limit. Older settings without a weekly limit remain valid. UI tests use a simulated DOM; real iPhone visual and accessibility checks remain pending.

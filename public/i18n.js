@@ -895,6 +895,24 @@ Your records changed. Reopen the partial sale and review it again.	تغيرت س
 This account has investment sale history. Keep it or remove it from active accounts.	لهذا الحساب سجل مبيعات استثمارية. احتفظ به أو أزله من الحسابات النشطة.
 e.g. 200	مثال: 200
 e.g. 500.00	مثال: 500.00
+Weekly overview	ملخص الأسبوع
+This week	هذا الأسبوع
+Last week	الأسبوع الماضي
+Earlier week	أسبوع سابق
+Previous week	الأسبوع السابق
+Next week	الأسبوع التالي
+Weekly spending limit	حد الإنفاق الأسبوعي
+Set a weekly spending limit	حدد حداً أسبوعياً للإنفاق
+Edit limit	تعديل الحد
+Spent	الإنفاق
+Income	الدخل
+No expenses recorded this week	لا توجد مصروفات مسجلة هذا الأسبوع
+Expenses only · transfers and investment contributions are excluded	المصروفات فقط · لا تشمل التحويلات أو مساهمات الاستثمار
+Weekly amount · AED	المبلغ الأسبوعي · درهم
+Save weekly limit	حفظ الحد الأسبوعي
+Set one from Weekly overview on the Overview screen.	حدد الحد من ملخص الأسبوع في شاشة النظرة العامة.
+Compared with your recorded expenses for a Monday–Sunday week. Transfers and investment contributions are excluded.	تتم المقارنة مع المصروفات المسجلة من الاثنين إلى الأحد، ولا تشمل التحويلات أو مساهمات الاستثمار.
+Enter 0 to turn the limit off. It does not change your balances.	أدخل 0 لإيقاف الحد. لن تتغير أرصدتك.
 `);
 const patterns=[
  [/^“(.+)” would have a negative balance\. Check the opening balance or record missing income first\.$/,m=>'سيصبح رصيد «'+m[1]+'» سالباً. راجع الرصيد الافتتاحي أو سجل الدخل الناقص أولاً.'],

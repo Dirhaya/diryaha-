@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.13.0** — a compact overview with expandable money breakdowns, plus an optional glossy glass theme. Existing records and backups remain compatible. Automated tests and physical iPhone acceptance status are recorded in [release notes](guide/RELEASE-1.13.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
+**Current release: 1.14.0** — week-by-week spending and income overviews, category highlights, and a weekly spending limit, alongside the compact overview and glossy glass theme. Existing records and backups remain compatible. Automated tests and physical iPhone acceptance status are recorded in [release notes](guide/RELEASE-1.14.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
 
 # Dirhaya · درهايا
 

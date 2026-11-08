@@ -1,6 +1,6 @@
 # Physical iPhone acceptance — pending
 
-Status: **Not performed.** Target release 1.13.0, build 20261101-01. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
+Status: **Not performed.** Target release 1.14.0, build 20261108-01. No physical iPhone or real Safari browser was available to the developer of this change. Record the tester, device, iOS version, old app build, new app build, and outcome for each check. Use synthetic records in an isolated test installation first.
 
 | Check | Procedure | Expected result | Status |
 |---|---|---|---|
@@ -18,6 +18,7 @@ Status: **Not performed.** Target release 1.13.0, build 20261101-01. No physical
 | Recurring review | Create salary and monthly bill due today. Reopen offline, review adjusted amount/date, tap record twice, skip another occurrence, pause/edit/delete a schedule. Test a 31st and leap-day anniversary. | No balance change before confirmation. Each occurrence records at most once; skip moves no money; calendar anchors hold; deleting template keeps history. | Pending |
 | Lock lifecycle | Enable a test passkey, then test file picker, share sheet, background/foreground, cancelled Face ID and recovery. | Protected UI stays hidden until unlock. Backup/share flow remains usable after unlock and cannot bypass lock. | Pending |
 | Layout/accessibility | Portrait/landscape on iPhone 17 Pro Max; keyboard open, larger text, VoiceOver, beige/grey/night, hide amounts. | Labels, error messages, checkbox states, navigation, backup file names and buttons stay reachable and readable without horizontal page overflow. | Pending |
+| Weekly overview and limit | With synthetic entries spanning Sunday/Monday and multiple weeks, browse previous/this week, set/edit/disable a weekly limit, and switch Arabic/large text. | Weeks run Monday–Sunday; week totals follow tracking start and count recorded expenses/income once; transfers, corrections and investment contributions are not spending; balances do not change when setting a limit. | Pending |
 | Low-storage failure | In a safe disposable test installation, simulate/observe a failed write or unavailable storage. | Clear failure; no partial ledger, recurrence advancement or snapshot replacement; previous records remain. | Pending |
 
 | Undo recent changes | Add, edit, split and delete synthetic expenses; undo one at a time. Reopen and undo again. Try a stale action after another window changes the record. | Exact affected entries, IDs and balances return; unrelated language/theme settings remain; unsafe or stale undo does not write. | Pending |
