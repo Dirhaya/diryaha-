@@ -925,6 +925,25 @@ From	منذ
 Start today	ابدأ اليوم
 No verified backup yet	لا توجد نسخة احتياطية مؤكدة بعد
 New changes need a backup	التغييرات الجديدة تحتاج إلى نسخة احتياطية
+Charity	الصدقات
+Donation	تبرع
+Donations	التبرعات
+Donated	تم التبرع
+Total donated	إجمالي التبرعات
+Total donated · all recorded dates	إجمالي التبرعات · جميع التواريخ المسجلة
+Record donation	تسجيل تبرع
+Edit donation	تعديل التبرع
+Save donation	حفظ التبرع
+Repeat donation	تكرار التبرع
+View all donations	عرض جميع التبرعات
+Charity or note · optional	الجهة الخيرية أو ملاحظة · اختياري
+No donations recorded yet.	لا توجد تبرعات مسجلة بعد.
+Donations reduce your account balance but are separate from expenses and spending limits.	تقلل التبرعات رصيد حسابك، لكنها منفصلة عن المصروفات وحدود الإنفاق.
+This reduces the paying account once. It does not count toward expenses or spending limits.	يُخصم المبلغ من الحساب مرة واحدة. ولا يُحتسب ضمن المصروفات أو حدود الإنفاق.
+All recorded donations are included here, even before your tracking start. Existing gifts are not automatically changed.	يشمل هذا الملخص جميع التبرعات المسجلة، حتى قبل بدء المتابعة. ولا يتم تغيير الهدايا السابقة تلقائياً.
+This donation reduces your balance but is excluded from expenses and spending limits.	يقلل هذا التبرع رصيدك، لكنه مستثنى من المصروفات وحدود الإنفاق.
+Add an account before recording a donation.	أضف حساباً قبل تسجيل التبرع.
+Reopen this account before changing the donation.	أعد فتح هذا الحساب قبل تعديل التبرع.
 `);
 const patterns=[
  [/^“(.+)” would have a negative balance\. Check the opening balance or record missing income first\.$/,m=>'سيصبح رصيد «'+m[1]+'» سالباً. راجع الرصيد الافتتاحي أو سجل الدخل الناقص أولاً.'],

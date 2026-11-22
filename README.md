@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.14.1** — quick expense and Add entry appear first on Overview; backup, tracking and recurring bills now share compact controls at the bottom. Week-by-week summaries and spending limits remain available. Existing records and backups remain compatible. See [release notes](guide/RELEASE-1.14.1.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
+**Current release: 1.15.0** — Charity has a separate donation total and history. Donations reduce the paying account once and are excluded from ordinary spending, charts and spending limits. Existing records are preserved. See [release notes](guide/RELEASE-1.15.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
 
 # Dirhaya · درهايا
 
