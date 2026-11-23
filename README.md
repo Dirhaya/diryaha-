@@ -2,7 +2,7 @@
 
 Formerly Dirhaya. Same hosted address and device database.
 
-**Current release: 1.15.0** — Charity has a separate donation total and history. Donations reduce the paying account once and are excluded from ordinary spending, charts and spending limits. Existing records are preserved. See [release notes](guide/RELEASE-1.15.md) and [iPhone acceptance](guide/IPHONE-ACCEPTANCE.md).
+**Current release: 1.16.0** — Spend directly from reserved goal money. See each goal’s target, already spent, saved money left and amount still to save. Goal payments debit the account once without counting towards ordinary weekly/monthly expenses or limits. See [release notes](guide/RELEASE-1.16.md).
 
 # Dirhaya · درهايا
 

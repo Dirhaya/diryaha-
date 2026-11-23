@@ -2,6 +2,7 @@
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.DirhayaI18n=value})(globalThis,function(){
 'use strict';
 const dictionary=Object.create(null),originals=new WeakMap(),attributes=new WeakMap();
+Object.assign(dictionary,{'Spend from goal':'الإنفاق من الهدف','Record goal payment':'تسجيل دفعة للهدف','Goal payment':'دفعة للهدف','Goal payments':'دفعات الأهداف','Already spent':'تم إنفاقه','Saved money left to use':'المدخرات المتبقية للاستخدام','Still to save':'المتبقي للادخار','Goal target':'المبلغ المستهدف','Goal achieved':'تم تحقيق الهدف','Target funded':'اكتمل تمويل الهدف','Recent goal payments':'دفعات الهدف الأخيرة','Add savings to this goal first.':'أضف مدخرات لهذا الهدف أولاً.','Latest 20 payments. All payments remain in Activity.':'آخر ٢٠ دفعة. تبقى جميع الدفعات في سجل النشاط.'});
 function add(lines){for(const line of lines.trim().split('\n')){const at=line.indexOf('\t');if(at>0)dictionary[line.slice(0,at)]=line.slice(at+1)}}
 add(`
 Overview	نظرة عامة

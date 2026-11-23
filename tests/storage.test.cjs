@@ -2,6 +2,7 @@
    Real Safari IndexedDB still requires the browser tests. */
 const test=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
 const C=require('../public/core.js');
+test('goal payment is atomic on failure, survives reopening, and can be undone',async()=>{const {S,adapter}=env();await S.init();let s=await S.mutate({type:'account.add',name:'Synthetic goal bank',opening:20000});s=await S.mutate({type:'goal.add',name:'Synthetic saved goal',target:10000});s=await S.mutate({type:'goal.allocate',id:s.goals[0].id,account:s.accounts[0].id,amount:8000});const action={type:'goal.spend',id:s.goals[0].id,account:s.accounts[0].id,amount:3000,date:C.localDate(),checkDuplicates:true};adapter.fail();await assert.rejects(S.mutate(action));assert.deepEqual(await S.get(),s);const paid=await S.mutate(action),reopened=env(adapter).S;assert.deepEqual(await reopened.init(),paid);assert.equal(C.goalSaved(paid.goals[0]),5000);assert.equal(C.goalSpent(paid,paid.goals[0].id),3000);await assert.rejects(reopened.mutate(action),e=>e.code==='POSSIBLE_DUPLICATE');const undone=await reopened.mutate({type:'undo',id:paid.undoHistory.at(-1).id});assert.deepEqual(undone.goals,s.goals);assert.deepEqual(undone.transactions,s.transactions)});
 function fakeDB(){
  let data=new Map(),queue=[],busy=false,failNext=false;
  function startNext(){if(busy||!queue.length)return;busy=true;const tx=queue.shift();tx._start()}
